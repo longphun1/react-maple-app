@@ -1,9 +1,12 @@
-import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import { useNavigate } from "react-router-dom";
+import { signInWithGooglePopup, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 
 const Navigation = () => {
+    const navigate = useNavigate()
     const logGoogleUser = async () => {
-        const response = await signInWithGooglePopup();
-        console.log(response)
+        const { user } = await signInWithGooglePopup();
+        createUserDocumentFromAuth(user)
+        navigate('/home')
     }
     return (
         <div>
