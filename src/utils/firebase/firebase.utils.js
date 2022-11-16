@@ -1,3 +1,4 @@
+
 import { initializeApp } from 'firebase/app';
 import {
     getAuth,
@@ -30,6 +31,15 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
+
+getAuth().onAuthStateChanged((user) => {    //
+    if (user) {
+        console.log('log in')
+        console.log('user id', user.uid)
+    } else {
+        console.log('log out')
+    }
+})
 
 const googleProvider = new GoogleAuthProvider();
 
