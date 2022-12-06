@@ -6,6 +6,7 @@ import { setCurrentUser } from './store/user/user.action';
 import PrivateRoutes from './routes/PrivateRoutes';
 import Login from './routes/login/login.component';
 import Home from './routes/home/home.component';
+import AddDaily from './routes/addDaily/addDaily.component';
 import './App.css';
 
 const App = () => {
@@ -25,9 +26,10 @@ const App = () => {
   return (
     <Fragment>
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route element={<PrivateRoutes />}>
-          <Route exact path='dashboard' element={<Home />} />
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/add' element={<AddDaily />} />
         </Route>
       </Routes>
     </Fragment>

@@ -25,7 +25,7 @@ const SignInForm = () => {
     const signInWithGoogle = async () => {
         const { user} = await signInWithGooglePopup(); // store the getAuth() info from google provider into user
         createUserDocumentFromAuth(user)  // create user from the google login method and store user in firebase
-        navigate('/dashboard');
+        navigate('/');
     }
 
     const handleSubmit = async (event) => {
@@ -34,7 +34,7 @@ const SignInForm = () => {
         try {
             await signInAuthUserWithEmailAndPassword(email, password);
             resetFormFields();
-            navigate('/dashboard');
+            navigate('/');
         } catch (error) {
             switch(error.code) {
                 case 'auth/wrong-password':
