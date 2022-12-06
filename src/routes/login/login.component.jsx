@@ -4,9 +4,11 @@ import './login.styles.css';
 
 const Login = () => {
     return (
-        <div className="login-container">
-            <SignInForm />
-            <SignUpForm />
+        <div className="body">
+            <div className="login-container">
+                <SignInForm />
+                <SignUpForm />
+            </div>
         </div>
     )
 };

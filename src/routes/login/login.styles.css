@@ -1,6 +1,23 @@
-.login-container {
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.body {
+    background-image: url("../../assets/maple-login-background.jpg");
+    background-size: cover;
     display: flex;
-    width: 900px;
-    justify-content: space-between;
-    margin: 30px auto;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw; 
+}
+
+.login-container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    height: 630px;
+    margin-top: 20vh;
+    opacity: 0.9;
+    width: 1000px;
 }
