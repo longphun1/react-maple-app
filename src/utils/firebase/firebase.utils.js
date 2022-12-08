@@ -22,7 +22,7 @@ import {
 } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBjvan4MppH5rEqrQBgWVpjuUCqJj2Z3-A",
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: "maplestory-10b12.firebaseapp.com",
     projectId: "maplestory-10b12",
     storageBucket: "maplestory-10b12.appspot.com",
