@@ -36,7 +36,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h1>home page {currentUser.email}</h1>
+            <h1>home page {currentUser.uid}</h1>
             <form>
             <button onClick={signOut}>Sign out</button>
             <button onClick={dailyRoute}>Add</button>

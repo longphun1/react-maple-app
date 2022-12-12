@@ -22,15 +22,15 @@ import {
 } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
+    apiKey: "AIzaSyBjvan4MppH5rEqrQBgWVpjuUCqJj2Z3-A",
     authDomain: "maplestory-10b12.firebaseapp.com",
     projectId: "maplestory-10b12",
     storageBucket: "maplestory-10b12.appspot.com",
     messagingSenderId: "874478870933",
     appId: "1:874478870933:web:d8dbb3c878403af4a8969c"
-};
+  };
 
-const firebaseApp = initializeApp(firebaseConfig);
+export const firebaseApp = initializeApp(firebaseConfig);
 
 // getAuth().onAuthStateChanged((user) => {    //
 //     if (user) {
