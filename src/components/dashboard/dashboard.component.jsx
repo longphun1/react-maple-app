@@ -9,10 +9,11 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 const Dashboard = () => {
     const [dailies, setDailies] = useState([])
 
-    const dailiesCollectionRef = collection(db, 'dailies')
-
     // extract a value from the entire redux store and able to use it in any components
     const currentUser = useSelector(selectCurrentUser) 
+
+    const dailiesCollectionRef = collection(db, `userDailies/${currentUser.uid}/dailies`)
+
     const navigate = useNavigate();
 
     const signOut = () => {
@@ -43,7 +44,7 @@ const Dashboard = () => {
             </form>
             {dailies.map((daily) => {
                 return (
-                    <div>
+                    <div key={daily.id}>
                         <h2>{daily.name}</h2>
                     </div>
                 )
