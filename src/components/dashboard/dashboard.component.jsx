@@ -1,11 +1,3 @@
-import { useState, useEffect } from "react";
-import { db } from "../../utils/firebase/firebase.utils";
-import { 
-    collection, 
-    getDocs, 
-    doc,
-    deleteDoc 
-} from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { useSelector } from "react-redux";
