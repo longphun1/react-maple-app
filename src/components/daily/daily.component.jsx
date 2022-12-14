@@ -4,7 +4,7 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import { deleteDoc, doc } from "firebase/firestore";
 
 const Daily = ({daily}) => {
-    const { name, id } = daily
+    const { name, id } = daily;
     
     const currentUser = useSelector(selectCurrentUser)
 
