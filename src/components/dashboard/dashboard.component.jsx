@@ -13,8 +13,6 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import DailyList from "../dailyList/dailyList.component";
 
 const Dashboard = () => {
-    const [dailies, setDailies] = useState([])
-
     // extract a value from the entire redux store and able to use it in any components
     const currentUser = useSelector(selectCurrentUser) 
 
