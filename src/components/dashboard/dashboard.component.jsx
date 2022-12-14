@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
-import { collection, getDocs, doc } from "firebase/firestore";
+import { 
+    collection, 
+    getDocs, 
+    doc,
+    deleteDoc 
+} from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { useSelector } from "react-redux";
@@ -35,6 +40,12 @@ const Dashboard = () => {
         getDailies();
     }, []);
 
+    const deleteDaily = async (id) => {
+        const dailyDoc = doc(db, `userDailies/${currentUser.uid}/dailies`, id)
+        await deleteDoc(dailyDoc)
+        window.location.reload(false)
+    }
+
     return (
         <div>
             <h1>home page {currentUser.uid}</h1>
@@ -46,6 +57,9 @@ const Dashboard = () => {
                 return (
                     <div key={daily.id}>
                         <h2>{daily.name}</h2>
+                        <button onClick={() => {
+                            deleteDaily(daily.id)
+                        }}> Delete</button>
                     </div>
                 )
             })}

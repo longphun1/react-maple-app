@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { useNavigate } from "react-router-dom";
 
 const AddForm = () => {
     const [newDaily, setNewDaily] = useState('');
@@ -11,8 +12,11 @@ const AddForm = () => {
 
     const dailyCollectionRef = collection(db, `userDailies/${uid}/dailies`)
 
+    const navigate = useNavigate()
+
     const createDaily = async () => {
         await addDoc(dailyCollectionRef, { name: newDaily })
+        navigate('/')
     }
 
     return (
