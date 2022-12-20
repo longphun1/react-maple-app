@@ -26,12 +26,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h1>home page {currentUser.uid}</h1>
-            <form>
-            <button onClick={signOut}>Sign out</button>
-            <button onClick={addCharacterRoute}>Add Character</button>
-            <button onClick={addDailyRoute}>Add</button>
-            </form>
+            <h1>dashboard</h1>
             <CharacterList />
         </div>
     )

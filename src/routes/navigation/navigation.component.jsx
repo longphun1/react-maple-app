@@ -1,20 +1,26 @@
-import { useNavigate } from "react-router-dom";
-import { signInWithGooglePopup, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
+import { Outlet, Link } from "react-router-dom";
+import { Fragment } from "react";
+
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+import './navigation.styles.css'
 
 const Navigation = () => {
-    const navigate = useNavigate()
-    const logGoogleUser = async () => {
-        const { user } = await signInWithGooglePopup();
-        createUserDocumentFromAuth(user)
-        navigate('/home')
-    }
+
     return (
-        <div>
-            <h1>sign in page</h1>
-            <button onClick={logGoogleUser}>
-                google sign in
-            </button>
-        </div>
+        <Fragment>
+            <div className="navigation">
+                <Link className="logo-container" to='/'>
+                    <img src="https://i.imgur.com/MDQOXmd.png" alt="logo" height='50px' width='160px'/>
+                </Link>
+                <div className="navlink-container">
+                        <Link className="nav-link" to='/addCharacter'>
+                            ADD CHARACTER
+                        </Link>
+                        <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
+                </div>
+            </div>
+            <Outlet />
+        </Fragment>
     )
 };
 

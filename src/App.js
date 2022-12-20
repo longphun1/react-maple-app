@@ -5,6 +5,7 @@ import { onAuthStateChangedListener, createUserDocumentFromAuth } from './utils/
 import { setCurrentUser } from './store/user/user.action';
 import PrivateRoutes from './routes/PrivateRoutes';
 import Login from './routes/login/login.component';
+import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 import AddCharacter from './routes/addCharacter/addCharacter.component';
 import AddDaily from './routes/addDaily/addDaily.component';
@@ -29,9 +30,11 @@ const App = () => {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route element={<PrivateRoutes />}>
-          <Route exact path='/' element={<Home />} />
-          <Route exact path='/addCharacter' element={<AddCharacter />} />
-          <Route exact path='/addDaily' element={<AddDaily />} />
+          <Route path='/' element={<Navigation />}>
+            <Route index element={<Home />} />
+            <Route exact path='addCharacter' element={<AddCharacter />} />
+            <Route exact path='addDaily' element={<AddDaily />} />
+          </Route>
         </Route>
       </Routes>
     </Fragment>
