@@ -7,7 +7,7 @@ const Character = ({character}) => {
         <div>
             <h2>{characterName}</h2>
             <h4>{characterClass}</h4>
-            <DailyList id={id} />
+            <DailyList c_id={id} />
             <AddDailyForm id={id} />
         </div>
     )

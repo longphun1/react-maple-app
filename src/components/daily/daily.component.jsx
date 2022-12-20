@@ -1,15 +1,11 @@
 import { db } from "../../utils/firebase/firebase.utils";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../store/user/user.selector";
 import { deleteDoc, doc } from "firebase/firestore";
 
-const Daily = ({daily}, {cid}) => {
+const Daily = ({daily, c_id}) => {
     const { dailyName, id } = daily;
-    
-    const currentUser = useSelector(selectCurrentUser)
 
     const deleteDaily = async (id) => {
-        const dailyDoc = doc(db, `charactersDailies/${cid}/dailies`, id)
+        const dailyDoc = doc(db, `charactersDailies/${c_id}/dailies`, id)
         await deleteDoc(dailyDoc)
         window.location.reload(false)
     }
@@ -17,7 +13,7 @@ const Daily = ({daily}, {cid}) => {
     return (
         <div>
             <h2>{dailyName}</h2>
-            <h3>{cid}</h3>
+            <h5>{c_id}</h5>
             <button onClick={() => deleteDaily(id)}>Delete</button>
         </div>
     )

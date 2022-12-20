@@ -2,14 +2,16 @@ import { useState, useEffect } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
 import {
     collection,
-    getDocs
+    getDocs,
+    deleteDoc,
+    doc
 } from "firebase/firestore";
 import Daily from "../daily/daily.component";
 
-const DailyList = ({id}) => {
+const DailyList = ({c_id}) => {
     const [dailies, setDailies] = useState([])
 
-    const dailiesCollectionRef = collection(db, `charactersDailies/${id}/dailies`)
+    const dailiesCollectionRef = collection(db, `charactersDailies/${c_id}/dailies`)
 
     useEffect(() => {
         const getDailies = async () => {
@@ -20,11 +22,17 @@ const DailyList = ({id}) => {
         getDailies();
     }, []);
 
+
+
     return (
         <div>
             {dailies.map((daily) => {
                 return (
-                    <Daily key={daily.id} daily={daily} id={id}/>
+                    <div>
+                        <Daily key={daily.id} daily={daily} c_id={c_id}/>
+            
+                        
+                    </div>
                 )
             })}
         </div>
