@@ -7,8 +7,8 @@ const Character = ({character}) => {
         <div>
             <h2>{characterName}</h2>
             <h4>{characterClass}</h4>
-            <DailyList c_id={id} />
-            <AddDailyForm id={id} />
+            <DailyList character_id={id} />
+            <AddDailyForm character_id={id} />
         </div>
     )
 };

@@ -2,11 +2,11 @@ import { useState } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
 
-const AddDailyForm = ({id}) => {
+const AddDailyForm = ({character_id}) => {
     
     const [newDaily, setNewDaily] = useState('');
 
-    const dailyCollectionRef = collection(db, `charactersDailies/${id}/dailies`)
+    const dailyCollectionRef = collection(db, `charactersDailies/${character_id}/dailies`)
 
     const createDaily = async () => {
         await addDoc(dailyCollectionRef, { dailyName: newDaily })
@@ -15,9 +15,8 @@ const AddDailyForm = ({id}) => {
 
     return (
         <div>
-            <h3>add daily</h3>
             <input 
-                placeholder="Name"
+                placeholder="Add a daily"
                 onChange={(event) => {
                     setNewDaily(event.target.value)
                 }}

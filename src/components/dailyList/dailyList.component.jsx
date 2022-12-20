@@ -3,15 +3,13 @@ import { db } from "../../utils/firebase/firebase.utils";
 import {
     collection,
     getDocs,
-    deleteDoc,
-    doc
 } from "firebase/firestore";
 import Daily from "../daily/daily.component";
 
-const DailyList = ({c_id}) => {
+const DailyList = ({character_id}) => {
     const [dailies, setDailies] = useState([])
 
-    const dailiesCollectionRef = collection(db, `charactersDailies/${c_id}/dailies`)
+    const dailiesCollectionRef = collection(db, `charactersDailies/${character_id}/dailies`)
 
     useEffect(() => {
         const getDailies = async () => {
@@ -28,11 +26,7 @@ const DailyList = ({c_id}) => {
         <div>
             {dailies.map((daily) => {
                 return (
-                    <div>
-                        <Daily key={daily.id} daily={daily} c_id={c_id}/>
-            
-                        
-                    </div>
+                        <Daily key={daily.id} daily={daily} character_id={character_id} />
                 )
             })}
         </div>
