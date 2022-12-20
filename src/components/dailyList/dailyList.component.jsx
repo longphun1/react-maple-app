@@ -4,16 +4,12 @@ import {
     collection,
     getDocs
 } from "firebase/firestore";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../store/user/user.selector";
 import Daily from "../daily/daily.component";
 
-const DailyList = () => {
+const DailyList = ({id}) => {
     const [dailies, setDailies] = useState([])
 
-    const currentUser = useSelector(selectCurrentUser)
-
-    const dailiesCollectionRef = collection(db, `userDailies/${currentUser.uid}/dailies`)
+    const dailiesCollectionRef = collection(db, `charactersDailies/${id}/dailies`)
 
     useEffect(() => {
         const getDailies = async () => {
@@ -28,7 +24,7 @@ const DailyList = () => {
         <div>
             {dailies.map((daily) => {
                 return (
-                    <Daily key={daily.id} daily={daily} />
+                    <Daily key={daily.id} daily={daily} id={id}/>
                 )
             })}
         </div>

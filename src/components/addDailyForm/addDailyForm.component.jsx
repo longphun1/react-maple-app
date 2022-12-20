@@ -1,28 +1,21 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
-import { selectCurrentUser } from "../../store/user/user.selector";
-import { useNavigate } from "react-router-dom";
 
-const AddForm = () => {
+const AddDailyForm = ({id}) => {
+    
     const [newDaily, setNewDaily] = useState('');
 
-    const uid = useSelector(selectCurrentUser).uid
-
-    const dailyCollectionRef = collection(db, `userDailies/${uid}/dailies`)
-
-    const navigate = useNavigate()
+    const dailyCollectionRef = collection(db, `charactersDailies/${id}/dailies`)
 
     const createDaily = async () => {
-        await addDoc(dailyCollectionRef, { name: newDaily })
-        navigate('/')
+        await addDoc(dailyCollectionRef, { dailyName: newDaily })
+        window.location.reload(false);
     }
 
     return (
         <div>
-            <h1>add form</h1>
-            <h2>{uid}</h2>
+            <h3>add daily</h3>
             <input 
                 placeholder="Name"
                 onChange={(event) => {
@@ -34,4 +27,4 @@ const AddForm = () => {
     )
 };
 
-export default AddForm;
+export default AddDailyForm;
