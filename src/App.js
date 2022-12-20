@@ -6,6 +6,7 @@ import { setCurrentUser } from './store/user/user.action';
 import PrivateRoutes from './routes/PrivateRoutes';
 import Login from './routes/login/login.component';
 import Home from './routes/home/home.component';
+import AddCharacter from './routes/addCharacter/addCharacter.component';
 import AddDaily from './routes/addDaily/addDaily.component';
 import './App.css';
 
@@ -29,7 +30,8 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route element={<PrivateRoutes />}>
           <Route exact path='/' element={<Home />} />
-          <Route exact path='/add' element={<AddDaily />} />
+          <Route exact path='/addCharacter' element={<AddCharacter />} />
+          <Route exact path='/addDaily' element={<AddDaily />} />
         </Route>
       </Routes>
     </Fragment>

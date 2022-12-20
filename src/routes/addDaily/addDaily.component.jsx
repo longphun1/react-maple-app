@@ -1,4 +1,4 @@
-import AddForm from "../../components/add-daily-form/add-daily-form.component";
+import AddForm from "../../components/addDailyForm/addDailyForm.component";
 
 const AddDaily = () => {
     return (
