@@ -1,0 +1,24 @@
+.dailyContainer {
+    margin-bottom: 5px;
+}
+
+.dailyName {
+    display: inline;
+}
+
+.deleteDailyBTN {
+    cursor: pointer;
+    display: inline;
+    margin-left: 25px;
+}
+
+.dailyCheckbox {
+    accent-color: #FF4500;
+    margin: 7px;
+    transform: scale(1.2);
+}
+
+input[type=checkbox]:checked + .dailyName {
+    color: #FF4500;
+    text-decoration: line-through;
+}

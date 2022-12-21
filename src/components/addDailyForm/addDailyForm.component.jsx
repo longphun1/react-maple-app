@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
+import './addDailyForm.styles.css'
 
 const AddDailyForm = ({character_id}) => {
     
@@ -14,14 +15,17 @@ const AddDailyForm = ({character_id}) => {
     }
 
     return (
-        <div>
+        <div className="addDailyContainer">
+            <form>
             <input 
+                className="addDailyInput"
                 placeholder="Add a daily"
                 onChange={(event) => {
                     setNewDaily(event.target.value)
                 }}
             />
-            <button onClick={createDaily}>Create</button>
+            <h3 className="addDailyBTN" onClick={createDaily}>&#43;</h3>
+            </form>
         </div>
     )
 };

@@ -1,0 +1,16 @@
+.addDailyInput {
+    border: none;
+    border-bottom: 1px solid #9b2c03;
+    font-size: 15px;
+    margin: 10px 0 0 10px;
+    width: 30%;
+}
+
+.addDailyInput:focus {
+    outline: none;
+}
+
+.addDailyBTN {
+    cursor: pointer;
+    display: inline;
+}

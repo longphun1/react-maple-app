@@ -8,6 +8,7 @@
     background-size: cover;
     display: flex;
     height: 100vh;
+    margin: -20px -40px;
     justify-content: center;
     width: 100vw; 
 }

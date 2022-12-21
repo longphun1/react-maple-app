@@ -1,5 +1,6 @@
 import { db } from "../../utils/firebase/firebase.utils";
 import { deleteDoc, doc } from "firebase/firestore";
+import './daily.styles.css'
 
 const Daily = ({daily, character_id}) => {
     const { dailyName, id } = daily;
@@ -11,9 +12,10 @@ const Daily = ({daily, character_id}) => {
     }
 
     return (
-        <div>
-            <h4>{dailyName}</h4>
-            <button onClick={() => deleteDaily(id)}>Delete</button>
+        <div className="dailyContainer">
+            <input type="checkbox" className="dailyCheckbox"/>
+            <h4 className="dailyName">{dailyName.toUpperCase()}</h4>
+            <h4 className="deleteDailyBTN" onClick={() => deleteDaily(id)}>&#10005;</h4>
         </div>
     )
 };

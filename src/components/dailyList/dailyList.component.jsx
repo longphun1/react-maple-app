@@ -5,6 +5,7 @@ import {
     getDocs,
 } from "firebase/firestore";
 import Daily from "../daily/daily.component";
+import './dailyList.styles.css'
 
 const DailyList = ({character_id}) => {
     const [dailies, setDailies] = useState([])
@@ -23,7 +24,7 @@ const DailyList = ({character_id}) => {
 
 
     return (
-        <div>
+        <div className="DL-container">
             {dailies.map((daily) => {
                 return (
                         <Daily key={daily.id} daily={daily} character_id={character_id} />
