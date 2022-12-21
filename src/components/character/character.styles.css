@@ -1,0 +1,17 @@
+.characterBoxContainer {
+    box-shadow: 5px 5px 10px rgb(84, 82, 82);
+    min-height: 200px;
+    margin: 15px;
+    width: 300px;
+    padding: 10px;
+}
+
+.characterName {
+    display: inline;
+}
+
+.characterClass {
+    color: #696969;
+    display: inline;
+    margin-left: 10px;
+}

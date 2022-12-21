@@ -7,6 +7,7 @@ import {
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import Character from "../character/character.component";
+import './characterList.styles.css'
 
 const CharacterList = () => {
     const [characters, setCharacters] = useState([])
@@ -25,7 +26,7 @@ const CharacterList = () => {
     }, []);
 
     return (
-        <div>
+        <div className="CL-container">
             {characters.map((character) => {
                 return(
                     <Character key={character.id} character={character} />

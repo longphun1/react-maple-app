@@ -1,0 +1,6 @@
+.CL-container {
+    display: flex;
+    min-height: 300px;
+    width: 80%;
+    margin: 0 auto;
+}
