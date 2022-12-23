@@ -8,7 +8,6 @@ import Login from './routes/login/login.component';
 import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 import AddCharacter from './routes/addCharacter/addCharacter.component';
-import AddDaily from './routes/addDaily/addDaily.component';
 import AddWeekly from './routes/addWeekly/addWeekly.component';
 import './App.css';
 
@@ -34,7 +33,6 @@ const App = () => {
           <Route path='/' element={<Navigation />}>
             <Route index element={<Home />} />
             <Route exact path='addCharacter' element={<AddCharacter />} />
-            <Route exact path='addDaily' element={<AddDaily />} />
             <Route exact path='addWeekly' element={<AddWeekly />} />
           </Route>
         </Route>
