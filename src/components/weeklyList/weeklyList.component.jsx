@@ -62,7 +62,9 @@ const WeeklyList = () => {
                                     {characters.map((character) => {
                                         return (
                                             <Fragment key={character.id}>
-                                                <td><input className="weeklyCheckbox" type="checkbox" /></td>
+                                                <td>
+                                                    <input className="weeklyCheckbox" type="checkbox"/>
+                                                </td>
                                             </Fragment>
                                         )
                                     })}

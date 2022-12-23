@@ -1,9 +1,15 @@
 .characterBoxContainer {
-    box-shadow: 5px 5px 10px rgb(149, 144, 144);
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgb(185, 180, 180);
     min-height: 200px;
     margin: 15px;
     width: 300px;
-    padding: 10px;
+}
+
+.infoContainer {
+    background-color: #6495ED;
+    border-radius: 5px 5px 0 0;
+    padding: 8px;
 }
 
 .characterName {
@@ -11,7 +17,7 @@
 }
 
 .characterClass {
-    color: #696969;
+    color: #2F4F4F;
     display: inline;
     margin-left: 10px;
 }

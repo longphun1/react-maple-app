@@ -4,6 +4,7 @@ import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { useNavigate } from "react-router-dom";
+import './addCharacterForm.styles.css'
 
 const AddCharacterForm = () => {
     const [newCharacterName, setNewCharacterName] = useState('');
@@ -21,21 +22,27 @@ const AddCharacterForm = () => {
     }
 
     return (
-        <div>
-            <h2>Add Character Form</h2>
-            <input 
-                placeholder="Character"
-                onChange={(event) => {
-                    setNewCharacterName(event.target.value)
-                }}
-            />
-            <input 
-                placeholder="Class"
-                onChange={(event) => {
-                    setNewCharacterClass(event.target.value)
-                }}
-            />
-            <button onClick={createCharacter}>Create</button>
+        <div className="addCharacterContainer">
+            <h1 className="addCharacterTitle">Add a Character</h1>
+            <div>
+                <input 
+                    className="addCharacterInput"
+                    placeholder="Character"
+                    onChange={(event) => {
+                        setNewCharacterName(event.target.value)
+                    }}
+                />
+            </div>
+            <div>
+                <input 
+                    className="addCharacterInput"
+                    placeholder="Class"
+                    onChange={(event) => {
+                        setNewCharacterClass(event.target.value)
+                    }}
+                />
+            </div>
+            <button className="addCharacterBTN" onClick={createCharacter}>Submit</button>
         </div>
     )
 };

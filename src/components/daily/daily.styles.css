@@ -3,6 +3,7 @@
 }
 
 .dailyName {
+    cursor: pointer;
     display: inline;
 }
 

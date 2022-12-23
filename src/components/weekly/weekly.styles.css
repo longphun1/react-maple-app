@@ -1,4 +1,5 @@
 .weeklyNameContainer {
     float: left;
     text-transform: capitalize;
+    margin-left: 20px;
 }

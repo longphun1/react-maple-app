@@ -13,8 +13,10 @@ const Daily = ({daily, character_id}) => {
 
     return (
         <div className="dailyContainer">
-            <input type="checkbox" className="dailyCheckbox"/>
-            <h4 className="dailyName">{dailyName.toUpperCase()}</h4>
+            <input type="checkbox" className="dailyCheckbox" id={daily.id}/>
+            <label className="dailyName" for={daily.id}>
+                <h4 className="dailyName">{dailyName.toUpperCase()}</h4>
+            </label>
             <h4 className="deleteDailyBTN" onClick={() => deleteDaily(id)}>&#10005;</h4>
         </div>
     )
