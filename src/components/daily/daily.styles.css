@@ -5,6 +5,7 @@
 .dailyName {
     cursor: pointer;
     display: inline;
+    font-weight: normal;
 }
 
 .deleteDailyBTN {

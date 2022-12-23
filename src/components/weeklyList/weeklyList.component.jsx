@@ -40,7 +40,6 @@ const WeeklyList = () => {
 
     return (
         <div className='WL-container'>
-            <AddWeeklyForm />
             <table className="weeklyTable">
                 <tbody>
                     <tr>

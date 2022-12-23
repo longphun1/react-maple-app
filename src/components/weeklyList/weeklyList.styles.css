@@ -2,18 +2,19 @@
     text-align: center;
     border: 1px solid rgb(135, 134, 134);
     border-spacing: 0;
-    height: 200px;
+    min-height: 150px;
     margin: 0 auto;
     max-width: 80%;
 }
 
 th {
     background-color: #6495ED;
-    width: 250px;
+    height: 60px;
+    width: 240px;
 }
 
 .weeklyCheckbox {
-    height: 33%;
+    height: 22px;
     width: 40%;
     cursor: pointer;
 }

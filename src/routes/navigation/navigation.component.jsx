@@ -16,6 +16,9 @@ const Navigation = () => {
                         <Link className="nav-link" to='/addCharacter'>
                             ADD CHARACTER
                         </Link>
+                        <Link className="nav-link" to='/addWeekly'>
+                            ADD WEEKLY
+                        </Link>
                         <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
                 </div>
             </div>

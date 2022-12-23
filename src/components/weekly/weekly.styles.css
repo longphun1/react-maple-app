@@ -3,3 +3,14 @@
     text-transform: capitalize;
     margin-left: 20px;
 }
+
+.weeklyNameContainer h3{
+    font-weight: normal;
+    display: inline;
+}
+
+.weeklyNameContainer h4 {
+    display: inline;
+    font-weight: normal;
+    margin-left: 10px;
+}

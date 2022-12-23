@@ -1,10 +1,13 @@
 import './weekly.styles.css'
 
 const Weekly = ({weekly}) => {
-    const { weeklyName, id } = weekly
+    const { weeklyName, weeklyPrice } = weekly
 
     return (
-        <div className="weeklyNameContainer">{weeklyName}</div>
+        <div className="weeklyNameContainer"> 
+            <h3>{weeklyName}</h3>
+            <h4>({weeklyPrice}m)</h4>
+        </div>
     )
 };
 
