@@ -2,3 +2,9 @@
     min-height: 50px;
     padding: 10px;
 }
+
+.noDailies-container {
+    font-style: italic;
+    margin-top: 15%;
+    text-align: center;
+}

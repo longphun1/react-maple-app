@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Fragment } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
 import {
     collection,
@@ -7,7 +8,7 @@ import {
 import Daily from "../daily/daily.component";
 import './dailyList.styles.css'
 
-const DailyList = ({character_id}) => {
+const DailyList = ({ character_id }) => {
     const [dailies, setDailies] = useState([])
 
     const dailiesCollectionRef = collection(db, `charactersDailies/${character_id}/dailies`)
@@ -24,13 +25,21 @@ const DailyList = ({character_id}) => {
 
 
     return (
-        <div className="DL-container">
-            {dailies.map((daily) => {
-                return (
-                        <Daily key={daily.id} daily={daily} character_id={character_id} />
-                )
-            })}
-        </div>
+        <Fragment>
+            {!dailies.length ?
+                <div className="noDailies-container">
+                    No current dailies
+                </div>
+                :
+                <div className="DL-container">
+                    {dailies.map((daily) => {
+                        return (
+                            <Daily key={daily.id} daily={daily} character_id={character_id} />
+                        )
+                    })}
+                </div>
+            }
+        </Fragment>
     )
 };
 
