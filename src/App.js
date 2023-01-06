@@ -9,8 +9,9 @@ import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 import AddCharacter from './routes/addCharacter/addCharacter.component';
 import AddWeekly from './routes/addWeekly/addWeekly.component';
-import './App.css';
 import ShopPage from './routes/shop/shop.component';
+import CheckOutPage from './routes/checkout/checkout.component';
+import './App.css';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const App = () => {
             <Route exact path='addCharacter' element={<AddCharacter />} />
             <Route exact path='addWeekly' element={<AddWeekly />} />
             <Route exact path='shop' element={<ShopPage />} />
+            <Route exact path='checkout' element={<CheckOutPage />} />
           </Route>
         </Route>
       </Routes>
