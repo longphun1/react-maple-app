@@ -11,15 +11,6 @@ const Daily = ({daily, character_id}) => {
         setIsChecked(!isChecked)
     }
 
-    // useEffect(() => {
-    //     window.localStorage.setItem( dailyName, isChecked)
-    // }, [])
-
-    // useEffect(() => {
-    //     const data = window.localStorage.getItem(dailyName);
-    //     setIsChecked(data)
-    // }, [])
-
     const deleteDaily = async (id) => {
         const dailyDoc = doc(db, `charactersDailies/${character_id}/dailies`, id)
         await deleteDoc(dailyDoc)
@@ -28,7 +19,7 @@ const Daily = ({daily, character_id}) => {
 
     return (
         <div className="dailyContainer">
-            <input type="checkbox" className="dailyCheckbox" id={daily.id} checked={isChecked} onClick={handleCheck}/>
+            <input type="checkbox" className="dailyCheckbox" id={daily.id} checked={isChecked} onChange={handleCheck}/>
             <label className="dailyName" htmlFor={daily.id}>
                 <h4 className="dailyName">{dailyName.toUpperCase()}</h4>
             </label>

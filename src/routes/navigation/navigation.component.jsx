@@ -1,6 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import { Fragment } from "react";
-
+import CartIcon from "../../components/cart-icon/cart-icon.component";
+import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import './navigation.styles.css'
 
@@ -19,8 +20,13 @@ const Navigation = () => {
                         <Link className="nav-link" to='/addWeekly'>
                             ADD WEEKLY
                         </Link>
+                        <Link className="nav-link" to='/shop'>
+                            SHOP
+                        </Link>
                         <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
+                        <CartIcon />
                 </div>
+                <CartDropDown />
             </div>
             <Outlet />
         </Fragment>

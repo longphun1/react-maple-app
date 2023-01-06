@@ -7,7 +7,6 @@ import {
 import { Fragment } from "react";
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
-import AddWeeklyForm from '../addWeeklyForm/addWeeklyForm.component';
 import Weekly from '../weekly/weekly.component';
 import './weeklyList.styles.css';
 

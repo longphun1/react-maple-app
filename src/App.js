@@ -10,6 +10,7 @@ import Home from './routes/home/home.component';
 import AddCharacter from './routes/addCharacter/addCharacter.component';
 import AddWeekly from './routes/addWeekly/addWeekly.component';
 import './App.css';
+import ShopPage from './routes/shop/shop.component';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const App = () => {
             <Route index element={<Home />} />
             <Route exact path='addCharacter' element={<AddCharacter />} />
             <Route exact path='addWeekly' element={<AddWeekly />} />
+            <Route exact path='shop' element={<ShopPage />} />
           </Route>
         </Route>
       </Routes>
