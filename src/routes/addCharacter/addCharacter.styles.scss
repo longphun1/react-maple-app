@@ -1,0 +1,41 @@
+.addCharacterContainer {
+    align-items: center;
+    justify-content: center;
+    min-height: 30vh;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+
+    .addCharacterTitle {
+        margin-bottom: 40px;
+    }
+    
+    .addCharacterInput {
+        font-size: large;
+        border: none;
+        height: 30px;
+        padding: 5px;
+        text-align: center;
+        width: 250px;
+    }
+    
+    .addCharacterInput:focus {
+        outline: none;
+    }
+    
+    .addCharacterInput:hover {
+        background-color: #FFFAF0;
+    }
+    
+    .addCharacterBTN {
+        font-size: large;
+        background-color: #FF4500;
+        border: none;
+        color: white;
+        border-radius: 3px;
+        height: 30px;
+        margin-top: 10px;
+        width: 250px;
+    }
+}
+

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AddDailyForm from "../addDailyForm/addDailyForm.component";
 import DailyList from "../dailyList/dailyList.component";
-import './character.styles.css'
+import './character.styles.scss'
 
 const Character = ({ character }) => {
     const { characterName, characterClass, id } = character;

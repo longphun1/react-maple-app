@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import './addWeekly.styles.css'
+import './addWeekly.styles.scss'
 
 const AddWeekly = () => {
     const [newWeeklyName, setNewWeeklyName] = useState('');

@@ -4,7 +4,7 @@ import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { useNavigate } from "react-router-dom";
-import './addCharacter.styles.css'
+import './addCharacter.styles.scss'
 
 const AddCharacter = () => {
     const [newCharacterName, setNewCharacterName] = useState('');
@@ -27,7 +27,7 @@ const AddCharacter = () => {
             <div>
                 <input 
                     className="addCharacterInput"
-                    placeholder="Character"
+                    placeholder="Character Name"
                     onChange={(event) => {
                         setNewCharacterName(event.target.value)
                     }}

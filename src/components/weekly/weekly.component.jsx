@@ -1,4 +1,4 @@
-import './weekly.styles.css'
+import './weekly.styles.scss'
 
 const Weekly = ({weekly}) => {
     const { weeklyName, weeklyPrice } = weekly

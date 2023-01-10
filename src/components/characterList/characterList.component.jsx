@@ -7,7 +7,7 @@ import {
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import Character from "../character/character.component";
-import './characterList.styles.css'
+import './characterList.styles.scss'
 
 const CharacterList = () => {
     const [characters, setCharacters] = useState([])

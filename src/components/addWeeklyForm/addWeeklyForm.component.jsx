@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import './addWeeklyForm.styles.css'
+import './addWeeklyForm.styles.scss'
 
 const AddWeeklyForm = () => {
     const [newWeekly, setNewWeekly] = useState('');

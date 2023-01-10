@@ -11,14 +11,15 @@
     margin: -20px -40px;
     justify-content: center;
     width: 100vw; 
+
+    .login-container {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        height: 630px;
+        margin-top: 20vh;
+        opacity: 0.9;
+        width: 1000px;
+    }
 }
 
-.login-container {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    height: 630px;
-    margin-top: 20vh;
-    opacity: 0.9;
-    width: 1000px;
-}

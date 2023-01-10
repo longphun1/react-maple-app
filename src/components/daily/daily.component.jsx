@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
 import { deleteDoc, doc } from "firebase/firestore";
-import './daily.styles.css'
+import './daily.styles.scss'
 
 const Daily = ({daily, character_id}) => {
     const { dailyName, id } = daily;

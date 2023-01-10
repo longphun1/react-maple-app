@@ -6,7 +6,7 @@ import {
     getDocs,
 } from "firebase/firestore";
 import Daily from "../daily/daily.component";
-import './dailyList.styles.css'
+import './dailyList.styles.scss'
 
 const DailyList = ({ character_id }) => {
     const [dailies, setDailies] = useState([])

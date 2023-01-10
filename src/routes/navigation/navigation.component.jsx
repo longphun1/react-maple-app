@@ -4,7 +4,7 @@ import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component";
 import { CartContext } from "../../contexts/cart.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import './navigation.styles.css'
+import './navigation.styles.scss'
 
 const Navigation = () => {
     const { isCartOpen } = useContext(CartContext)

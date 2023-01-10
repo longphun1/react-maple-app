@@ -8,7 +8,7 @@ import { Fragment } from "react";
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import Weekly from '../weekly/weekly.component';
-import './weeklyList.styles.css';
+import './weeklyList.styles.scss';
 
 const WeeklyList = () => {
     const [weeklies, setWeeklies] = useState([])
