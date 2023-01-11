@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
 import {
     collection,
     getDocs,
 } from "firebase/firestore";
-import { Fragment } from "react";
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import Weekly from '../weekly/weekly.component';
@@ -38,41 +37,50 @@ const WeeklyList = () => {
     }, [])
 
     return (
-        <div className='WL-container'>
-            <table className="weeklyTable">
-                <tbody>
-                    <tr>
-                        <th style={{ width: 80 }}></th>
-                        {characters.map((character) => {
-                            return (
-                                <Fragment key={character.id}>
-                                    <th>{character.characterName}</th>
-                                </Fragment>
-                            )
-                        })}
-                    </tr>
+        <Fragment>
+            {weeklies.length ?
+                <div className='WL-container'>
+                    <table className="weeklyTable">
+                        <tbody>
+                            <tr>
+                                <th style={{ width: 80 }}></th>
+                                {characters.map((character) => {
+                                    return (
+                                        <Fragment key={character.id}>
+                                            <th>{character.characterName}</th>
+                                        </Fragment>
+                                    )
+                                })}
+                            </tr>
 
-                    {weeklies.map((weekly) => {
-                        return (
-                            <Fragment key={weekly.id}>
-                                <tr>
-                                    <td ><Weekly weekly={weekly} /></td>
-                                    {characters.map((character) => {
-                                        return (
-                                            <Fragment key={character.id}>
-                                                <td>
-                                                    <input className="weeklyCheckbox" type="checkbox"/>
-                                                </td>
-                                            </Fragment>
-                                        )
-                                    })}
-                                </tr>
-                            </Fragment>
-                        )
-                    })}
-                </tbody>
-            </table>
-        </div>
+                            {weeklies.map((weekly) => {
+                                return (
+                                    <Fragment key={weekly.id}>
+                                        <tr>
+                                            <td ><Weekly weekly={weekly} /></td>
+                                            {characters.map((character) => {
+                                                return (
+                                                    <Fragment key={character.id}>
+                                                        <td>
+                                                            <input className="weeklyCheckbox" type="checkbox" />
+                                                        </td>
+                                                    </Fragment>
+                                                )
+                                            })}
+                                        </tr>
+                                    </Fragment>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+                :
+                <div>
+                    <h3 className="no-weeklies">YOU HAVE NO WEEKLIES</h3>
+                    
+                </div>
+            }
+        </Fragment>
     )
 };
 

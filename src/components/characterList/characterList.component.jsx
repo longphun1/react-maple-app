@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
 import {
     collection,
@@ -26,13 +26,21 @@ const CharacterList = () => {
     }, []);
 
     return (
-        <div className="CL-container">
-            {characters.map((character) => {
-                return(
-                    <Character key={character.id} character={character} />
-                )
-            })}
-        </div>
+        <Fragment>
+            {characters.length ?
+                <div className="CL-container">
+                    {characters.map((character) => {
+                        return (
+                            <Character key={character.id} character={character} />
+                        )
+                    })}
+                </div>
+                :
+                <div className="CL-container">
+                    <h3 className="no-characters">YOU HAVE NO CHARACTERS</h3>
+                </div>
+            }
+        </Fragment>
     )
 };
 
