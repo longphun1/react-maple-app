@@ -1,20 +1,22 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Fragment, useContext } from 'react';
-import { CartContext } from '../../contexts/cart.context';
+import { Fragment } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCartItems, selectIsCartOpen } from '../../store/cart/cart.selector';
+import { setIsCartOpen } from '../../store/cart/cart.action';
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 import './cart-dropdown.styles.scss';
 
 const CartDropDown = () => {
-    const { cartItems, setIsCartOpen } = useContext(CartContext);
+    const cartItems = useSelector(selectCartItems)
+    const isCartOpen = useSelector(selectIsCartOpen);
 
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const path = useLocation()
 
-    const close = () => {
-        setIsCartOpen(false)
-    }
+    const close = () => dispatch(setIsCartOpen(!isCartOpen))
 
-    const navigate = useNavigate()
 
     const checkOutPage = () => {
         navigate('/checkout')
@@ -28,7 +30,7 @@ const CartDropDown = () => {
                         {cartItems.length ? (
                             cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
                         ) : (
-                            <img src='https://i.imgur.com/DW4gz2O.png' className='empty-cart-message' />
+                            <img src='https://i.imgur.com/DW4gz2O.png' alt='https://i.imgur.com/DW4gz2O.png' className='empty-cart-message' />
                         )}
                     </div>
                     <Button onClick={checkOutPage}>Checkout</Button>
@@ -39,7 +41,7 @@ const CartDropDown = () => {
                         {cartItems.length ? (
                             cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
                         ) : (
-                            <img src='https://i.imgur.com/DW4gz2O.png' className='empty-cart-message' />
+                            <img src='https://i.imgur.com/DW4gz2O.png' alt='https://i.imgur.com/DW4gz2O.png' className='empty-cart-message' />
                         )}
                     </div>
                     <Button onClick={checkOutPage}>Checkout</Button>
