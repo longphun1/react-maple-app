@@ -25,18 +25,22 @@ const CartDropDown = () => {
             {path.pathname === '/shop' ?
                 <div className='cart-dropdown-container'>
                     <div className='cart-items'>
-                        {cartItems.map((item) => (
-                            <CartItem key={item.id} cartItem={item} />
-                        ))}
+                        {cartItems.length ? (
+                            cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
+                        ) : (
+                            <img src='https://i.imgur.com/DW4gz2O.png' className='empty-cart-message' />
+                        )}
                     </div>
                     <Button onClick={checkOutPage}>Checkout</Button>
                 </div>
                 :
                 <div onMouseLeave={close} className='cart-dropdown-container'>
                     <div className='cart-items'>
-                        {cartItems.map((item) => (
-                            <CartItem key={item.id} cartItem={item} />
-                        ))}
+                        {cartItems.length ? (
+                            cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
+                        ) : (
+                            <img src='https://i.imgur.com/DW4gz2O.png' className='empty-cart-message' />
+                        )}
                     </div>
                     <Button onClick={checkOutPage}>Checkout</Button>
                 </div>
