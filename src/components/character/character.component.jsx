@@ -24,14 +24,14 @@ const Character = ({ character }) => {
                         <div>
                             <h2 className="characterName">{characterName}</h2>
                             <h4 className="characterClass">{characterClass}</h4>
-                            <a className="addDailyToggle" onClick={handleToggleOff}>&#8722;</a>
+                            <span className="addDailyToggle" onClick={handleToggleOff}>&#8722;</span>
                             <AddDailyForm character_id={id} />
                         </div>
                         :
                         <div>
                             <h2 className="characterName">{characterName}</h2>
                             <h4 className="characterClass">{characterClass}</h4>
-                            <a className="addDailyToggle" onClick={handleToggleOn}>&#43;</a>
+                            <span className="addDailyToggle" onClick={handleToggleOn}>&#43;</span>
                         </div>
                     }
                 </div>
