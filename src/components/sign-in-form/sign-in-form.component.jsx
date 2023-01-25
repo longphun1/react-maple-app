@@ -25,7 +25,7 @@ const SignInForm = () => {
     const signInWithGoogle = async () => {
         const { user} = await signInWithGooglePopup(); // store the getAuth() info from google provider into user
         createUserDocumentFromAuth(user)  // create user from the google login method and store user in firebase
-        navigate('/dashboard');
+        navigate('/');
     }
 
     const handleSubmit = async (event) => {

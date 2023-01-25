@@ -16,9 +16,9 @@ const Navigation = () => {
 
     return (
         <Fragment>
-            {path.pathname === '/dashboard' || path.pathname === '/addWeekly' || path.pathname === '/addDaily' ?
+            {path.pathname === '/missions' || path.pathname === '/addWeekly' || path.pathname === '/addDaily' ?
                 <div className="navigation">
-                    <Link className="logo-container" to='/dashboard'>
+                    <Link className="logo-container" to='/'>
                         <img src="https://i.imgur.com/MDQOXmd.png" alt="logo" height='50px' width='160px' />
                     </Link>
                     <div className="navlink-container">
@@ -32,9 +32,9 @@ const Navigation = () => {
                     </div>
                     {isCartOpen && <CartDropDown />}
                 </div>
-                :
+                : 
                 <div className="navigation">
-                    <Link className="logo-container" to='/dashboard'>
+                    <Link className="logo-container" to='/'>
                         <img src="https://i.imgur.com/MDQOXmd.png" alt="logo" height='50px' width='160px' />
                     </Link>
                     <div className="navlink-container">

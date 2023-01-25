@@ -36,7 +36,7 @@ const CharacterList = () => {
                     })}
                 </div>
                 :
-                <div className="CL-container">
+                <div className="empty-CL-container">
                     <h3 className="no-characters">YOU HAVE NO CHARACTERS</h3>
                 </div>
             }

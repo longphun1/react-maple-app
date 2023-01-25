@@ -1,8 +1,10 @@
-import Dashboard from '../../components/dashboard/dashboard.component';
+import Dashboard from "../../components/dashboard/dashboard.component";
+
+import './home.styles.scss'
 
 const Home = () => {
     return (
-        <div>
+        <div className="home-container">
             <Dashboard />
         </div>
     )

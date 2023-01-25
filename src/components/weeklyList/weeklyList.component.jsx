@@ -77,7 +77,6 @@ const WeeklyList = () => {
                 :
                 <div>
                     <h3 className="no-weeklies">YOU HAVE NO WEEKLIES</h3>
-                    
                 </div>
             }
         </Fragment>
