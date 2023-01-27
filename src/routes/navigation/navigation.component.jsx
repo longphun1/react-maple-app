@@ -16,37 +16,55 @@ const Navigation = () => {
 
     return (
         <Fragment>
-            {path.pathname === '/missions' || path.pathname === '/addWeekly' || path.pathname === '/addDaily' ?
-                <div className="navigation">
-                    <Link className="logo-container" to='/'>
-                        <img src="https://i.imgur.com/MDQOXmd.png" alt="logo" height='50px' width='160px' />
-                    </Link>
-                    <div className="navlink-container">
-                        <Link className="nav-link" to='/addCharacter'>
-                            ADD CHARACTER
+            <Fragment>
+                {path.pathname === '/' ?
+                    <div className="navigation">
+                        <Link className="logo-container" to='/'>
+                            <img src="https://i.imgur.com/MDQOXmd.png" alt="logo" height='50px' width='160px' />
                         </Link>
-                        <Link className="nav-link" to='/addWeekly'>
-                            ADD WEEKLY
-                        </Link>
-                        <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
-                    </div>
-                    {isCartOpen && <CartDropDown />}
-                </div>
-                : 
-                <div className="navigation">
-                    <Link className="logo-container" to='/'>
-                        <img src="https://i.imgur.com/MDQOXmd.png" alt="logo" height='50px' width='160px' />
-                    </Link>
-                    <div className="navlink-container">
-                        <Link className="nav-link" to='/shop'>
-                            SHOP
-                        </Link>
-                        <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
-                        <CartIcon />
-                    </div>
-                    {isCartOpen && <CartDropDown />}
-                </div>
-            }
+                        <div className="navlink-container">
+
+                            <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
+                            <CartIcon />
+                        </div>
+                        {isCartOpen && <CartDropDown />}
+                    </div>                     
+                    :
+                    <Fragment>
+                        {path.pathname === '/missions' || path.pathname === '/addWeekly' || path.pathname === '/addDaily' ?
+                            <div className="navigation">
+                                <Link className="logo-container" to='/'>
+                                    <img src="https://i.imgur.com/MDQOXmd.png" alt="logo" height='50px' width='160px' />
+                                </Link>
+                                <div className="navlink-container">
+                                    <Link className="nav-link" to='/addCharacter'>
+                                        ADD CHARACTER
+                                    </Link>
+                                    <Link className="nav-link" to='/addWeekly'>
+                                        ADD WEEKLY
+                                    </Link>
+                                    <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
+                                </div>
+                                {isCartOpen && <CartDropDown />}
+                            </div>
+                            :
+                            <div className="navigation">
+                                <Link className="logo-container" to='/'>
+                                    <img src="https://i.imgur.com/MDQOXmd.png" alt="logo" height='50px' width='160px' />
+                                </Link>
+                                <div className="navlink-container">
+                                    <Link className="nav-link" to='/shop'>
+                                        SHOP
+                                    </Link>
+                                    <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
+                                    <CartIcon />
+                                </div>
+                                {isCartOpen && <CartDropDown />}
+                            </div>
+                        }
+                    </Fragment>
+                }
+            </Fragment>
             <Outlet />
         </Fragment>
     )
