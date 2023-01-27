@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
 import { deleteDoc, doc } from "firebase/firestore";
 import './daily.styles.scss'
 
 const Daily = ({daily, character_id}) => {
+    const [isChecked, setIsChecked] = useState(() => {
+        return localStorage.getItem('checkbox') === 'true';
+      });
     const { dailyName, id } = daily;
-    const [ isChecked, setIsChecked ] = useState(false)
 
-    const handleCheck = () => {
-        setIsChecked(!isChecked)
+    useEffect(() => {
+        localStorage.setItem('checkbox', isChecked);
+      }, [isChecked]);
+
+    const handleCheck = (event) => {
+        setIsChecked(event.target.checked);
     }
 
     const deleteDaily = async (id) => {

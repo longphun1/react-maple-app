@@ -23,7 +23,6 @@ const Navigation = () => {
                             <img src="https://i.imgur.com/MDQOXmd.png" alt="logo" height='50px' width='160px' />
                         </Link>
                         <div className="navlink-container">
-
                             <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
                             <CartIcon />
                         </div>
@@ -31,7 +30,7 @@ const Navigation = () => {
                     </div>                     
                     :
                     <Fragment>
-                        {path.pathname === '/missions' || path.pathname === '/addWeekly' || path.pathname === '/addDaily' ?
+                        {path.pathname === '/missions' || path.pathname === '/addWeekly' || path.pathname === '/addCharacter' ?
                             <div className="navigation">
                                 <Link className="logo-container" to='/'>
                                     <img src="https://i.imgur.com/MDQOXmd.png" alt="logo" height='50px' width='160px' />
