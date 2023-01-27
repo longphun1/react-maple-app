@@ -1,0 +1,1 @@
+export const checkboxSelector = (state) => state.checkbox
