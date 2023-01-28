@@ -23,7 +23,7 @@ const Daily = ({daily, character_id}) => {
                 className="dailyCheckbox"
                 id={daily.id}
                 type="checkbox"
-                checked={checkbox}
+                checked={checkbox[daily.id]}
                 onChange={() => dispatch(setCheckboxAction(daily.id))}
             />            
             <label className="dailyName" htmlFor={daily.id}>
