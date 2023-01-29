@@ -18,7 +18,7 @@ const AddWeekly = () => {
 
     const createWeekly = async () => {
         await addDoc(weeklyCollectionRef, { weeklyName: newWeeklyName, weeklyPrice: Number(newWeeklyPrice) });
-        navigate('/');
+        navigate('/missions');
     }
     return (
         <div className="addWeeklyContainer">

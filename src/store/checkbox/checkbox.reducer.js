@@ -1,4 +1,4 @@
-const checkboxReducer = (state = null, action) => {
+const checkboxReducer = (state = {}, action) => {
     switch(action.type) {
         case 'SET-CHECKBOX':
             return {

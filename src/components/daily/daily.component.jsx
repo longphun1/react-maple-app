@@ -6,9 +6,10 @@ import { checkboxSelector } from "../../store/checkbox/checkbox.selector";
 import { setCheckboxAction } from "../../store/checkbox/checkbox.action";
 import './daily.styles.scss'
 
-const Daily = ({daily, character_id}) => {
+const Daily = ({ daily, character_id }) => {
     const { dailyName, id } = daily;
-    const checkbox = useSelector(checkboxSelector)
+
+    const checkboxes = useSelector(checkboxSelector)
     const dispatch = useDispatch()
 
     const deleteDaily = async (id) => {
@@ -23,9 +24,9 @@ const Daily = ({daily, character_id}) => {
                 className="dailyCheckbox"
                 id={daily.id}
                 type="checkbox"
-                checked={checkbox[daily.id]}
+                checked={checkboxes[daily.id] || false}
                 onChange={() => dispatch(setCheckboxAction(daily.id))}
-            />            
+            />
             <label className="dailyName" htmlFor={daily.id}>
                 <h4 className="dailyName">{dailyName.toUpperCase()}</h4>
             </label>

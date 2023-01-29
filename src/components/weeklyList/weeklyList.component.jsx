@@ -7,6 +7,7 @@ import {
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import Weekly from '../weekly/weekly.component';
+import WeeklyCheckbox from "../weeklyCheckbox/weeklyCheckbox.component";
 import './weeklyList.styles.scss';
 
 const WeeklyList = () => {
@@ -62,7 +63,7 @@ const WeeklyList = () => {
                                                 return (
                                                     <Fragment key={character.id}>
                                                         <td>
-                                                            <input className="weeklyCheckbox" type="checkbox" />
+                                                            <WeeklyCheckbox weekly_id={weekly.id} character_id={character.id}/>
                                                         </td>
                                                     </Fragment>
                                                 )

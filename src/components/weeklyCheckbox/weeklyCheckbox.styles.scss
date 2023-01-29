@@ -1,0 +1,9 @@
+.weeklyCheckbox {
+    height: 22px;
+    width: 40%;
+    cursor: pointer;
+}
+
+.weeklyCheckbox:checked {
+    accent-color: black;
+}
