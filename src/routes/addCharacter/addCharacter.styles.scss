@@ -1,19 +1,25 @@
 .addCharacterContainer {
-    align-items: center;
-    justify-content: center;
-    min-height: 30vh;
-    width: 100%;
+    background-color: black;
+    height: 100vh;
+    margin: 0px -40px -20px -40px;
+    padding-top: 20vh;
+    position: absolute;
     text-align: center;
-    margin: 0 auto;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
 
     .addCharacterTitle {
+        color: #FFFAF0;
+        font-family: 'lato';
         margin-bottom: 40px;
     }
     
     .addCharacterInput {
-        font-size: large;
         border: none;
+        font-size: large;
         height: 30px;
+        margin: 2px;
         padding: 5px;
         text-align: center;
         width: 250px;
@@ -36,6 +42,10 @@
         height: 30px;
         margin-top: 10px;
         width: 250px;
+
+        &:hover {
+            background-color: #F39C12;
+        } 
     }
 }
 

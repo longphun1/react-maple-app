@@ -1,14 +1,25 @@
 .navigation {
+    background-color: rgba(44, 62, 80, .7);
     height: 70px;
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin: -20px -40px;
+    margin-bottom: 20px;
+    padding: 20px 40px;
+    z-index: 2;
+    position: absolute;
 
     .logo-container {
-        height: 100%;
-        width: 160px;
-        padding: 15px;
+        height: 50px;
+        width: 60px;
+        margin-top: -11px;
+        margin-left: 3%;
+
+        .logo-image {
+            height: 100%;
+            width: 50px;
+        }
       }
     
     .navlink-container {
@@ -19,8 +30,10 @@
         justify-content: flex-end;
 
         .nav-link {
-            padding: 10px 15px;
+            color: #F5FFFA;
             cursor: pointer;
+            font-family: 'Lato';
+            padding: 10px 15px;
         }
     }
     

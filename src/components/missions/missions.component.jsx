@@ -6,10 +6,12 @@ import './missions.styles.scss';
 const Missions = () => {
     return (
         <div className="missions-container">
-            <h1 className="mission-titles">Daily Missions</h1>
-            <CharacterList />
-            <h1 className="mission-titles">Weekly Missions</h1>
-            <WeeklyList />
+            <div className="missions-sub-container">
+                <h1 className="mission-titles">Daily Missions</h1>
+                <CharacterList />
+                <h1 className="mission-titles">Weekly Missions</h1>
+                <WeeklyList />
+            </div>
         </div>
     )
 };

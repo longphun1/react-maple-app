@@ -22,8 +22,6 @@ const DailyList = ({ character_id }) => {
         getDailies();
     }, []);
 
-
-
     return (
         <Fragment>
             {!dailies.length ?

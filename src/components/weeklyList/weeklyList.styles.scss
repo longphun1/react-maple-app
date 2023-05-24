@@ -1,15 +1,20 @@
 .weeklyTable {
-    text-align: center;
-    border: 1px solid rgb(135, 134, 134);
+    background-color: #c5c8c8;
     border-spacing: 0;
-    min-height: 150px;
     margin: 0 auto;
     max-width: 80%;
+    min-height: 150px;
+    text-align: center;
 
     th {
-        background-color: #6495ED;
+        background-color: #F39C12;
+        font-size: 18px;
         height: 60px;
         width: 240px;
+    }
+
+    td {
+        height: 50px;
     }
 }
 
@@ -19,6 +24,3 @@
     margin-top: 80px;
     text-align: center;
 }
-
-
-

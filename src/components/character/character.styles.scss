@@ -1,27 +1,30 @@
 .characterBoxContainer {
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px rgb(185, 180, 180);
+    background-color: #c5c8c8;
+    border-radius: 5px 5px 0 0;
     min-height: 200px;
     width: 300px;
 
     .infoContainer {
-        background-color: #6495ED;
+        background-color: #F39C12;
         border-radius: 5px 5px 0 0;
         padding: 8px;
 
         .characterName {
+            font-size: 20px;
             display: inline;
         }
         
         .characterClass {
-            color: #2F4F4F;
+            color: #535757;
             display: inline;
+            font-size: 15px;
             margin-left: 10px;
         }
         
         .addDailyToggle {
             cursor: pointer;
             font-size: 20px;
+            font-weight: bold;
             float: right;
             margin-right: 5px;
         }

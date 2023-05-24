@@ -2,28 +2,38 @@
     margin-bottom: 5px;
 
     .dailyCheckbox {
-        accent-color: #FF4500;
+        accent-color: #737271;
         margin: 7px;
-        transform: scale(1.2);
+        transform: scale(1.3);
+        background-color: black;
     }
 
     .dailyName {
         cursor: pointer;
         display: inline;
         font-weight: normal;
+        margin-left: 3px;
     }
 
     .deleteDailyBTN {
+        color: #737271;
         cursor: pointer;
         display: inline;
+        font-size: 15px;
         margin-left: 25px;
+
+        &:hover {
+            color: black;
+        }
     }
 
     input[type=checkbox]:checked + .dailyName {
-        color: #FF4500;
+        color: #737271;
         text-decoration: line-through;
     }
 }
+
+
 
 
 
