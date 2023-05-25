@@ -9,6 +9,21 @@
     width: 100vw;
     z-index: 1;
 
+    .go-back-container {
+        position: absolute;
+        margin-left: 13%;
+        margin-top: -10vh;
+
+        .go-back-hex {
+            color: white;
+            font-size: 45px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
     .addCharacterTitle {
         color: #FFFAF0;
         font-family: 'lato';

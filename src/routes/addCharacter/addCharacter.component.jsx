@@ -21,8 +21,15 @@ const AddCharacter = () => {
         navigate('/')
     }
 
+    const backToMissions = () => {
+        navigate('/missions')
+    }
+
     return (
         <div className="addCharacterContainer">
+            <div className="go-back-container">
+                <span className="go-back-hex" onClick={backToMissions}>&#8617;</span>
+            </div>
             <h2 className="addCharacterTitle">ADD A CHARACTER</h2>
             <div>
                 <input 

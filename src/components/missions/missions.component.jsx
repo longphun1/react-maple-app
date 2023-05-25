@@ -6,6 +6,9 @@ import './missions.styles.scss';
 const Missions = () => {
     return (
         <div className="missions-container">
+            <div className="mission-banner-container">
+                <div className="mission-banner-img"/>
+            </div>
             <div className="missions-sub-container">
                 <h1 className="mission-titles">Daily Missions</h1>
                 <CharacterList />
