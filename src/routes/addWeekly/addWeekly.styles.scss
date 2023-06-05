@@ -1,7 +1,30 @@
 .addWeeklyContainer {
+    background-color: black;
+    min-height: 100vh;
+    margin: 0px -40px -20px -40px;
+    position: absolute;
+    top: 0;
     text-align: center;
-    height: 30vh;
-    width: 100%;
+    width: 100vw;
+    z-index: 1;
+    padding-top: 17vh;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    .go-back-container {
+        position: absolute;
+        margin-left: 7%;
+        margin-top: -8vh;
+
+        .go-back-hex {
+            color: white;
+            font-size: 45px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
 
     .addWeeklyTitle {
         margin-bottom: 40px;
@@ -22,27 +45,6 @@
     
     .addWeeklyInput:focus {
         outline: none;
-    }
-    
-    .addWeeklyBTN {
-        font-size: large;
-        background-color: #FF4500;
-        border: none;
-        color: white;
-        border-radius: 3px;
-        height: 30px;
-        margin-top: 10px;
-        width: 250px;
-    }
-    
-    input[type='number'] {
-        appearance: none;
-        -moz-appearance:textfield;
-    }
-    
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
     }
 }
 

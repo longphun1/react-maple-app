@@ -1,49 +1,28 @@
-import { useState } from "react";
-import { db } from "../../utils/firebase/firebase.utils";
 import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../store/user/user.selector";
-import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { selectBossesMap } from "../../store/boss/boss.selector";
+import BossCard from "../../components/bossCard/bossCard.component";
 import './addWeekly.styles.scss'
 
 const AddWeekly = () => {
-    const [newWeeklyName, setNewWeeklyName] = useState('');
-    const [newWeeklyPrice, setNewWeeklyPrice] = useState('');
-
-    const uid = useSelector(selectCurrentUser).uid
-
     const navigate = useNavigate()
 
-    const weeklyCollectionRef = collection(db, `userWeeklies/${uid}/weeklies`)
-
-    const createWeekly = async () => {
-        await addDoc(weeklyCollectionRef, { weeklyName: newWeeklyName, weeklyPrice: Number(newWeeklyPrice) });
-        navigate('/missions');
+    const backToMissions = () => {
+        navigate('/missions')
     }
+    const bossesMap = useSelector(selectBossesMap).boss
+
     return (
         <div className="addWeeklyContainer">
-            <h2 className="addWeeklyTitle">ADD WEEKLY MISSION</h2>
-            <div>
-                <input
-                    className="addWeeklyInput"
-                    placeholder="Name"
-                    onChange={(event) => {
-                        setNewWeeklyName(event.target.value)
-                    }}
-                />
+            <div className="go-back-container">
+                <span className="go-back-hex" onClick={backToMissions}>&#8617;</span>
             </div>
-            <div>
-                <input
-                    className="addWeeklyInput"
-                    type='number'
-                    placeholder="Price (optional)"
-                    onChange={(event) => {
-                        setNewWeeklyPrice(event.target.value)
-                    }}
-                />
-            </div>
-            <button className="addWeeklyBTN" onClick={createWeekly}>Submit</button>
 
+            {bossesMap.map((boss) => {
+                return (
+                    <BossCard key={boss.id} boss={boss} />
+                )
+            })}
         </div>
     )
 }

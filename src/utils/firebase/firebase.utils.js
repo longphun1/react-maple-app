@@ -64,9 +64,29 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 
     await batch.commit();
 };
-
+// Fetch categories data from firebase.
 export const getCategoriesAndDocuments = async () => {
     const collectionRef = collection(db, 'categories');
+    const q = query(collectionRef);
+  
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map((docSnapshot) => docSnapshot.data())
+  };
+// Add boss data into firebase DB.
+export const addBossCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+    const collectionRef = collection(db, collectionKey);
+    const batch = writeBatch(db);
+
+    objectsToAdd.forEach((object) => {
+        const docRef = doc(collectionRef, object.title.toLowerCase());
+        batch.set(docRef, object)
+    });
+
+    await batch.commit();
+};
+// Fetch boss data from db.
+export const getBossesAndDocuments = async () => {
+    const collectionRef = collection(db, 'bosses');
     const q = query(collectionRef);
   
     const querySnapshot = await getDocs(q);

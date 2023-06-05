@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { userReducer } from "./user/user.reducer";
 import { categoriesReducer } from "./categories/category.reducer";
 import { cartReducer } from "./cart/cart.reducer";
+import { bossesReducer } from "./boss/boss.reducer";
 import checkboxReducer from "./checkbox/checkbox.reducer";
 
 export const rootReducer = combineReducers({
@@ -9,4 +10,5 @@ export const rootReducer = combineReducers({
     categories: categoriesReducer,
     cart: cartReducer,
     checkbox: checkboxReducer,
+    bosses: bossesReducer
 });

@@ -1,9 +1,24 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getBossesAndDocuments } from "../../utils/firebase/firebase.utils";
+import { setBosses } from "../../store/boss/boss.action";
 import CharacterList from "../characterList/characterList.component";
 import WeeklyList from "../weeklyList/weeklyList.component";
 
 import './missions.styles.scss';
 
 const Missions = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        const getBossesMap = async () => {
+            const bosses = await getBossesAndDocuments('bosses');
+            dispatch(setBosses(bosses))
+        };
+
+        getBossesMap();
+    }, [dispatch])
+
     return (
         <div className="missions-container">
             <div className="mission-banner-container">

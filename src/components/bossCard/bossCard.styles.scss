@@ -1,0 +1,101 @@
+.bossCard-container {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 7px;
+    display: inline-block;
+    height: 100px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    padding-top: 15px;
+    position: relative;
+    width: 350px;
+
+    &:hover {
+        .addWeeklyBTN {
+            background-color: rgba(255, 69, 0, .7);
+            border-radius: 3px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: block;
+            font-size: large;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .deleteWeeklyBtn {
+            background-color: rgba(17, 17, 17, 0.7);
+            border-radius: 3px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: block;
+            font-size: large;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    }
+
+    .addWeeklyBTN {
+        display: none;
+    }
+
+    .deleteWeeklyBtn {
+        display: none;
+    }
+
+    .boss-image-container {
+        float: left;
+        width: 100px;
+        height: 50px;
+        vertical-align: middle;
+
+        .boss-image {
+            border-radius: 5px;
+            height: 70px;
+            width: 70px;
+
+        }
+    }
+
+    .boss-details-container {
+        margin-top: 6px;
+        float: left;
+
+        .boss-name {
+            text-align: left;
+        }
+
+        .boss-price-icon-container {
+            .boss-price {
+                float: left;
+            }
+
+            .meso-icon {
+                height: 20px;
+                float: left;
+                margin-right: 3px;
+                margin-top: 1px;
+                width: 20px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+.bossCard-container#bossExist {
+    background-color: rgba(202, 199, 199, 0.5);
+
+    .boss-image {
+        opacity: .4;
+    }
+
+    .meso-icon {
+        opacity: .4;
+    }
+}

@@ -1,5 +1,6 @@
 const BOSS_DATA = [
     {
+        title: 'Boss',
         items: [ 
             {
                 id: 1,
@@ -202,3 +203,5 @@ const BOSS_DATA = [
         ]
     }
 ]
+
+export default BOSS_DATA;
