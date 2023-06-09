@@ -7,7 +7,7 @@ import PrivateRoutes from './routes/PrivateRoutes';
 import Login from './routes/login/login.component';
 import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
-import Missions from './components/missions/missions.component';
+import Missions from './routes/missions/missions.component';
 import AddCharacter from './routes/addCharacter/addCharacter.component';
 import AddWeekly from './routes/addWeekly/addWeekly.component';
 import ShopPage from './routes/shop/shop.component';

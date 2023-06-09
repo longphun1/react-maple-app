@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getBossesAndDocuments } from "../../utils/firebase/firebase.utils";
 import { setBosses } from "../../store/boss/boss.action";
-import CharacterList from "../characterList/characterList.component";
-import WeeklyList from "../weeklyList/weeklyList.component";
+import CharacterList from "../../components/characterList/characterList.component";
+import WeeklyList from "../../components/weeklyList/weeklyList.component";
 
 import './missions.styles.scss';
 

@@ -1,7 +1,7 @@
 import { BOSS_ACTION_TYPES } from "./boss.types";
 
 export const BOSSES_INITIAL_STATE = {
-    bosses: []
+    bosses: [],
 };
 
 export const bossesReducer = (state = BOSSES_INITIAL_STATE, action = {}) => {
@@ -9,7 +9,9 @@ export const bossesReducer = (state = BOSSES_INITIAL_STATE, action = {}) => {
 
     switch(type) {
         case BOSS_ACTION_TYPES.SET_BOSS:
-            return {...state, bosses: payload};
+            return {
+                ...state, 
+                bosses: payload};
         default:
             return state;
     }

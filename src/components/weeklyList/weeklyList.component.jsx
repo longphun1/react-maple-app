@@ -37,6 +37,8 @@ const WeeklyList = () => {
         getCharacters();
     }, [])
 
+    const sortData = [ ...weeklies].sort((a, b) => a.weeklyPrice - b.weeklyPrice)
+
     return (
         <Fragment>
             {weeklies.length ?
@@ -54,7 +56,7 @@ const WeeklyList = () => {
                                 })}
                             </tr>
 
-                            {weeklies.map((weekly) => {
+                            {sortData.map((weekly) => {
                                 return (
                                     <Fragment key={weekly.id}>
                                         <tr>
@@ -63,7 +65,7 @@ const WeeklyList = () => {
                                                 return (
                                                     <Fragment key={character.id}>
                                                         <td>
-                                                            <WeeklyCheckbox weekly_id={weekly.id} character_id={character.id}/>
+                                                            <WeeklyCheckbox weekly={weekly} character_id={character.id}/>
                                                         </td>
                                                     </Fragment>
                                                 )
