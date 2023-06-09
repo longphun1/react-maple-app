@@ -9,12 +9,14 @@ import { selectCurrentUser } from '../../store/user/user.selector';
 import Weekly from '../weekly/weekly.component';
 import WeeklyCheckbox from "../weeklyCheckbox/weeklyCheckbox.component";
 import './weeklyList.styles.scss';
+import { selectBossTotal } from "../../store/checkbox/checkbox.selector";
 
 const WeeklyList = () => {
     const [weeklies, setWeeklies] = useState([])
     const [characters, setCharacters] = useState([])
 
     const uid = useSelector(selectCurrentUser).uid
+    const bossTotal = useSelector(selectBossTotal)
 
     const weekliesCollectionRef = collection(db, `userWeeklies/${uid}/weeklies`)
     const charactersCollectionRef = collection(db, `userCharacters/${uid}/characters`)
@@ -82,6 +84,9 @@ const WeeklyList = () => {
                     <h3 className="no-weeklies">YOU HAVE NO WEEKLIES</h3>
                 </div>
             }
+            <div>
+                <h3 className="bosstotal">{bossTotal}</h3>
+            </div>
         </Fragment>
     )
 };
