@@ -10,6 +10,8 @@ import Weekly from '../weekly/weekly.component';
 import WeeklyCheckbox from "../weeklyCheckbox/weeklyCheckbox.component";
 import './weeklyList.styles.scss';
 import { selectBossTotal } from "../../store/checkbox/checkbox.selector";
+import { useDispatch } from "react-redux";
+import { clearpersist } from "../../store/store";
 
 const WeeklyList = () => {
     const [weeklies, setWeeklies] = useState([])
@@ -40,6 +42,10 @@ const WeeklyList = () => {
     }, [])
 
     const sortData = [ ...weeklies].sort((a, b) => a.weeklyPrice - b.weeklyPrice)
+
+    const dispatch = useDispatch()
+
+    const clearredux = () => dispatch(clearpersist())
 
     return (
         <Fragment>
@@ -86,6 +92,7 @@ const WeeklyList = () => {
             }
             <div>
                 <h3 className="bosstotal">{bossTotal}</h3>
+                <button onClick={clearredux}> Clear </button>
             </div>
         </Fragment>
     )

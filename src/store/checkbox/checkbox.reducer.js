@@ -18,7 +18,7 @@ const checkboxReducer = (state = BOSS_INTIAL_STATE, action = {}) => {
         case 'SET_BOSS_ITEMS':
             return {
                 ...state,
-                bossItems: payload
+                bossItems: payload,
             }
         default:
             return state

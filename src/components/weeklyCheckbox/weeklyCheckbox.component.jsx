@@ -8,7 +8,6 @@ const WeeklyCheckbox = ({ weekly, character_id }) => {
     const { id, weeklyName } = weekly;
     const checkboxes = useSelector(checkboxSelector)
     const bossItems = useSelector(selectBossItems)
-    console.log(bossItems)
     const dispatch = useDispatch()
 
     const unique_id = id + character_id
@@ -17,9 +16,9 @@ const WeeklyCheckbox = ({ weekly, character_id }) => {
         dispatch(setCheckboxAction(unique_id))
         
         if(checkboxes[unique_id]) {
-            dispatch(removeBoss(bossItems, weekly))
+            dispatch(removeBoss(bossItems, unique_id))
         } else {
-            dispatch(addBossToList(bossItems, weekly))
+            dispatch(addBossToList(bossItems, weekly, unique_id))
         }
     }
 

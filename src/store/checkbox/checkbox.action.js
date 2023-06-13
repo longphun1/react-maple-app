@@ -8,31 +8,20 @@ export const setCheckboxAction = (id) => {
     }
 };
 
-const addBossItem = (bossItems, bossToAdd) => {
-    const existingBossItem = bossItems.find(
-        (bossItem) => bossItem.id === bossToAdd.id
-    );
-
-    if (existingBossItem) {
-        return bossItems.map((bossItem) =>
-            bossItem.id === bossToAdd.id ?
-                { ...bossItem, quantity: bossItem.quantity + 1 }
-                : bossItem
-        )
-    }
-
-    return [...bossItems, { ...bossToAdd, quantity: 1 }];
+const addBossItem = (bossItems, bossToAdd, unique_id) => {
+    return [...bossItems, { ...bossToAdd, newID: unique_id }];
 };
 
-export const addBossToList = (bossItems, bossToAdd) => {
-    const newBossItems = addBossItem(bossItems, bossToAdd);
+const removeBossItem = (bossItems, unique_id) => {
+    return bossItems.filter((bossItem) => bossItem.newID !== unique_id)
+}
+
+export const addBossToList = (bossItems, bossToAdd, unique_id) => {
+    const newBossItems = addBossItem(bossItems, bossToAdd, unique_id);
     return createAction(BOSS_ACTION_TYPES.SET_BOSS_ITEMS, newBossItems)
 };
 
-const removeBossFromList = (bossItems, bossToRemove) =>
-    bossItems.filter((bossItem) => bossItem.id !== bossToRemove.id)
-
-export const removeBoss = (bossItems, bossToRemove) => {
-    const newBossItems = removeBossFromList(bossItems, bossToRemove);
+export const removeBoss = (bossItems, unique_id) => {
+    const newBossItems = removeBossItem(bossItems, unique_id);
     return createAction(BOSS_ACTION_TYPES.SET_BOSS_ITEMS, newBossItems)
 }
