@@ -12,40 +12,52 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import './characters.styles.scss';
 
 const Characters = () => {
-    const [characterss, setCharacterss] = useState([]);
-    
-    const uid = useSelector(selectCurrentUser).uid;
+    const [characters, setCharacters] = useState([]);
+    console.log(characters)
 
-    const charactersCollectionRef = collection(db, `userCharacters/${uid}/characters`);
+    const userId = useSelector(selectCurrentUser).uid;
+
+    const charactersCollectionRef = collection(db, `userCharacters/${userId}/characters`);
 
     const navigate = useNavigate()
 
     useEffect(() => {
         const getCharacters = async () => {
             const data = await getDocs(charactersCollectionRef);
-            setCharacterss(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            setCharacters(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         };
 
         getCharacters();
     }, []);
 
     const deleteCharacter = async (id) => {
-        const characterDoc = doc(db, `userCharacters/${uid}/characters`, id);
+        const characterDoc = doc(db, `userCharacters/${userId}/characters`, id);
         await deleteDoc(characterDoc);
         navigate('/missions')
     };
 
+    const goToUpdatePage = async (id) => {
+        navigate(`/character/${id}`)
+    }
+
+    const backToMissions = () => {
+        navigate('/missions')
+    }
+
     return (
-        <div>
-        {characterss.map((character) => {
-            return (
-                <div className="characters-container" key={character.id}>
-                    <h1 className="character-name">{character.characterClass}</h1>
-                    <button className="update-character-btn">Update</button>
-                    <button className="delete-character-btn" onClick={() => {deleteCharacter(character.id)}}>Delete</button>
-                </div>
-            )
-        })}
+        <div className="characters-container">
+            <div className="go-back-container">
+                <span className="go-back-hex" onClick={backToMissions}>&#8617;</span>
+            </div>
+            {characters.map((character) => {
+                return (
+                    <div className="characters-sub-container" key={character.id}>
+                        <h1 className="character-name">{character.characterClass}</h1>
+                        <button className="update-character-btn" onClick={() => { goToUpdatePage(character.id) }}>Update</button>
+                        <button className="delete-character-btn" onClick={() => { deleteCharacter(character.id) }}>Delete</button>
+                    </div>
+                )
+            })}
         </div>
     )
 }

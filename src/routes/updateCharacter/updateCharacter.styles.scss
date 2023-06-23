@@ -1,0 +1,65 @@
+.update-container {
+    background-color: black;
+    min-height: 100vh;
+    margin: 0px -40px;
+    padding-top: 20vh;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    .go-back-container {
+        position: absolute;
+        margin-left: 13%;
+        margin-top: -10vh;
+
+        .go-back-hex {
+            color: white;
+            font-size: 45px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .updateCharacterTitle {
+        color: #FFFAF0;
+        font-family: 'lato';
+        margin-bottom: 40px;
+    }
+
+    .updateCharacterInput {
+        border: none;  
+        font-size: large;
+        height: 30px;
+        margin: 2px;
+        padding: 5px;
+        text-align: center;
+        width: 250px;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background-color: #FFFAF0;
+        }
+    }
+
+    .updateCharacterBTN {
+        font-size: large;
+        background-color: #FF4500;
+        border: none;
+        color: white;
+        border-radius: 3px;
+        height: 30px;
+        margin-top: 10px;
+        width: 250px;
+
+        &:hover {
+            background-color: #F39C12;
+        } 
+    }
+}
