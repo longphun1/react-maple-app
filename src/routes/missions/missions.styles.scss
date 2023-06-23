@@ -36,6 +36,16 @@
             color: #767b78;
             font-family: 'Lato';
             margin-bottom: 50px;
+
+            .view-characters-link {
+                color: #767b78;
+                font-size: 16px;
+                float: right;
+
+                &:hover {
+                    color: rgb(181, 178, 178);
+                }
+            }
         }
     }
 }

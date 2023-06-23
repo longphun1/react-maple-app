@@ -18,7 +18,7 @@ const WeeklyList = () => {
     const [characters, setCharacters] = useState([])
 
     const uid = useSelector(selectCurrentUser).uid
-    const bossTotal = useSelector(selectBossTotal)
+    const bossTotal = useSelector(selectBossTotal).toLocaleString()
 
     const weekliesCollectionRef = collection(db, `userWeeklies/${uid}/weeklies`)
     const charactersCollectionRef = collection(db, `userCharacters/${uid}/characters`)
@@ -90,7 +90,8 @@ const WeeklyList = () => {
                     <h3 className="no-weeklies">YOU HAVE NO WEEKLIES</h3>
                 </div>
             }
-            <div>
+            <div className="boss-total-container">
+                <h3 className="bossTotal-header">Total Meso:</h3>
                 <h3 className="bosstotal">{bossTotal}</h3>
                 <button onClick={clearredux}> Clear </button>
             </div>

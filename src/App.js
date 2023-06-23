@@ -12,6 +12,7 @@ import AddCharacter from './routes/addCharacter/addCharacter.component';
 import AddWeekly from './routes/addWeekly/addWeekly.component';
 import ShopPage from './routes/shop/shop.component';
 import CheckOutPage from './routes/checkout/checkout.component';
+import Characters from './routes/characters/characters.component';
 import './App.css';
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
             <Route exact path='missions' element={<Missions />} />
             <Route exact path='addCharacter' element={<AddCharacter />} />
             <Route exact path='addWeekly' element={<AddWeekly />} />
+            <Route exact path='characters' element={<Characters />} />
             <Route exact path='shop/*' element={<ShopPage />} />
             <Route exact path='checkout' element={<CheckOutPage />} />
           </Route>

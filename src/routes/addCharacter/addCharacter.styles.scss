@@ -31,7 +31,7 @@
     }
     
     .addCharacterInput {
-        border: none;
+        border: none;  
         font-size: large;
         height: 30px;
         margin: 2px;
@@ -62,5 +62,15 @@
             background-color: #F39C12;
         } 
     }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 

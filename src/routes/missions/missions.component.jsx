@@ -25,7 +25,7 @@ const Missions = () => {
                 <div className="mission-banner-img"/>
             </div>
             <div className="missions-sub-container">
-                <h1 className="mission-titles">Daily Missions</h1>
+                <h1 className="mission-titles">Daily Missions <a className="view-characters-link" href="characters">View All Characters</a></h1>
                 <CharacterList />
                 <h1 className="mission-titles">Weekly Missions</h1>
                 <WeeklyList />

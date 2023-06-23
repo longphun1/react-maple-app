@@ -9,6 +9,7 @@ import './addCharacter.styles.scss'
 const AddCharacter = () => {
     const [newCharacterName, setNewCharacterName] = useState('');
     const [newCharacterClass, setNewCharacterClass] = useState('');
+    const [newCharacterLevel, setNewCharacterLevel] = useState('');
 
     const uid = useSelector(selectCurrentUser).uid
 
@@ -17,8 +18,8 @@ const AddCharacter = () => {
     const navigate = useNavigate()
 
     const createCharacter = async () => {
-        await addDoc(characterCollectionRef, { characterName: newCharacterName, characterClass: newCharacterClass })
-        navigate('/')
+        await addDoc(characterCollectionRef, { characterName: newCharacterName, characterClass: newCharacterClass, characterLevel: newCharacterLevel })
+        navigate('/missions')
     }
 
     const backToMissions = () => {
@@ -46,6 +47,16 @@ const AddCharacter = () => {
                     placeholder="Class"
                     onChange={(event) => {
                         setNewCharacterClass(event.target.value)
+                    }}
+                />
+            </div>
+            <div>
+                <input 
+                    className="addCharacterInput"
+                    placeholder="Level"
+                    type="number"
+                    onChange={(event) => {
+                        setNewCharacterLevel(event.target.value)
                     }}
                 />
             </div>
