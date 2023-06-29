@@ -1,8 +1,10 @@
 .weeklyTable {
-    background-color: rgba(49, 60, 69, 0.65);
+    background-color: rgba(49, 60, 69, 0.5);
+    border-radius: 10px;
     border-spacing: 0;
+    overflow: hidden;
     margin: 0 auto;
-    min-width: 80%;
+    max-width: 80%;
     min-height: 150px;
     text-align: center;
 
@@ -10,11 +12,15 @@
         background-color: #F39C12;
         font-size: 18px;
         height: 60px;
-        width: 240px;
+        width: 200px;
     }
 
     td {
         height: 50px;
+    }
+
+    tr:nth-child(odd) {
+        background-color: rgba(255, 255, 255, 0.1);
     }
 }
 
@@ -27,8 +33,9 @@
 
 .boss-total-container {
     color: rgb(255, 255, 255, .9);
-    margin-left: 73%;
-    margin-top: 30px;
+    float: right;
+    margin-right: 10%;
+    margin-top: -35px;
     padding: .5em;
     width: 280px;
 

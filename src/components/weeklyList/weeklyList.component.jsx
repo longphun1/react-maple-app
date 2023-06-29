@@ -6,16 +6,23 @@ import {
 } from "firebase/firestore";
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
+import { selectBossTotal } from "../../store/checkbox/checkbox.selector";
 import Weekly from '../weekly/weekly.component';
 import WeeklyCheckbox from "../weeklyCheckbox/weeklyCheckbox.component";
+import Pagination from "../pagination/pagination.component";
 import './weeklyList.styles.scss';
-import { selectBossTotal } from "../../store/checkbox/checkbox.selector";
 import { useDispatch } from "react-redux";
 import { clearpersist } from "../../store/store";
 
 const WeeklyList = () => {
     const [weeklies, setWeeklies] = useState([])
     const [characters, setCharacters] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postsPerPage, setPostPerPage] = useState(5)
+
+    const lastPostIndex = currentPage * postsPerPage;
+    const firePostIndex = lastPostIndex - postsPerPage;
+    const currentCharacters = characters.slice(firePostIndex, lastPostIndex)
 
     const uid = useSelector(selectCurrentUser).uid
     const bossTotal = useSelector(selectBossTotal).toLocaleString()
@@ -55,7 +62,7 @@ const WeeklyList = () => {
                         <tbody>
                             <tr>
                                 <th style={{ width: 80 }}></th>
-                                {characters.map((character) => {
+                                {currentCharacters.map((character) => {
                                     return (
                                         <Fragment key={character.id}>
                                             <th>{character.characterName}</th>
@@ -69,7 +76,7 @@ const WeeklyList = () => {
                                     <Fragment key={weekly.id}>
                                         <tr>
                                             <td ><Weekly weekly={weekly} /></td>
-                                            {characters.map((character) => {
+                                            {currentCharacters.map((character) => {
                                                 return (
                                                     <Fragment key={character.id}>
                                                         <td>
@@ -90,6 +97,7 @@ const WeeklyList = () => {
                     <h3 className="no-weeklies">YOU HAVE NO WEEKLIES</h3>
                 </div>
             }
+            <Pagination totalPosts={characters.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
             <div className="boss-total-container">
                 <h3 className="bossTotal-header">Total Meso:</h3>
                 <h3 className="bosstotal">{bossTotal}</h3>
