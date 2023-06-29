@@ -21,3 +21,9 @@
         text-align: center;
     }
 }
+
+@media only screen and (max-width: 1650px) {
+    .CL-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

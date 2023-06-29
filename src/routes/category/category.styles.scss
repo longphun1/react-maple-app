@@ -1,4 +1,9 @@
-.category-container {
+.placeholder {
+    height: 5px;
+    margin-bottom: 7%;
+}
+
+.category-sub-container {
     column-gap: 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);

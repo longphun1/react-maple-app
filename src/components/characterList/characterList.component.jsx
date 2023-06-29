@@ -12,6 +12,8 @@ import './characterList.styles.scss'
 const CharacterList = () => {
     const [characters, setCharacters] = useState([])
 
+    const sortCharacterBasedOnLvl = [ ...characters].sort((a, b) => b.characterLevel - a.characterLevel)
+
     const currentUser = useSelector(selectCurrentUser)
 
     const charactersCollectionRef = collection(db, `userCharacters/${currentUser.uid}/characters`)
@@ -29,7 +31,7 @@ const CharacterList = () => {
         <Fragment>
             {characters.length ?
                 <div className="CL-container">
-                    {characters.map((character) => {
+                    {sortCharacterBasedOnLvl.map((character) => {
                         return (
                             <Character key={character.id} character={character} />
                         )

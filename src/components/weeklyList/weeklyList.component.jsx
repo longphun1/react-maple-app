@@ -20,9 +20,12 @@ const WeeklyList = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostPerPage] = useState(5)
 
+    const sortBossBasedOnPrice = [ ...weeklies].sort((a, b) => a.weeklyPrice - b.weeklyPrice)
+    const sortCharacterBasedOnLvl = [ ...characters].sort((a, b) => b.characterLevel - a.characterLevel)
+
     const lastPostIndex = currentPage * postsPerPage;
     const firePostIndex = lastPostIndex - postsPerPage;
-    const currentCharacters = characters.slice(firePostIndex, lastPostIndex)
+    const currentCharacters = sortCharacterBasedOnLvl.slice(firePostIndex, lastPostIndex)
 
     const uid = useSelector(selectCurrentUser).uid
     const bossTotal = useSelector(selectBossTotal).toLocaleString()
@@ -46,9 +49,7 @@ const WeeklyList = () => {
         };
 
         getCharacters();
-    }, [])
-
-    const sortData = [ ...weeklies].sort((a, b) => a.weeklyPrice - b.weeklyPrice)
+    }, []);
 
     const dispatch = useDispatch()
 
@@ -71,7 +72,7 @@ const WeeklyList = () => {
                                 })}
                             </tr>
 
-                            {sortData.map((weekly) => {
+                            {sortBossBasedOnPrice.map((weekly) => {
                                 return (
                                     <Fragment key={weekly.id}>
                                         <tr>
@@ -101,7 +102,7 @@ const WeeklyList = () => {
             <div className="boss-total-container">
                 <h3 className="bossTotal-header">Total Meso:</h3>
                 <h3 className="bosstotal">{bossTotal}</h3>
-                <button onClick={clearredux}> Clear </button>
+                {/* <button onClick={clearredux}> Clear </button> */}
             </div>
         </Fragment>
     )

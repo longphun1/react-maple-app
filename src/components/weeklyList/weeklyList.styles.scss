@@ -48,3 +48,13 @@
         display: inline-block;
     }
 }
+
+@media only screen and (max-width: 1600px) {
+    .weeklyTable {
+        min-width: 100%;
+    }
+
+    .boss-total-container {
+        margin-right: 0;
+    }
+}
