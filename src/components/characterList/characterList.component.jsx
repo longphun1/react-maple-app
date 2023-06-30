@@ -7,12 +7,18 @@ import {
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import Character from "../character/character.component";
+import SearchBox from "../search-box/search-box.component";
+import Pagination from "../pagination/pagination.component";
 import './characterList.styles.scss'
 
 const CharacterList = () => {
     const [characters, setCharacters] = useState([])
+    const [searchField, setSearchField] = useState('')
+    const [filteredCharacters, setFilteredCharacters] = useState(characters)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postsPerPage, setPostPerPage] = useState(8)
 
-    const sortCharacterBasedOnLvl = [ ...characters].sort((a, b) => b.characterLevel - a.characterLevel)
+    const sortCharacterBasedOnLvl = [ ...filteredCharacters].sort((a, b) => b.characterLevel - a.characterLevel)
 
     const currentUser = useSelector(selectCurrentUser)
 
@@ -27,11 +33,29 @@ const CharacterList = () => {
         getDailies();
     }, []);
 
+    useEffect(() => {
+        const newFilteredCharacters = characters.filter((character) => {
+            return character.characterName.toLocaleLowerCase().includes(searchField);
+        })
+
+        setFilteredCharacters(newFilteredCharacters)
+    }, [characters, searchField]);
+
+    const onSearchChange = (event) => {
+        const searchFieldString = event.target.value.toLocaleLowerCase();
+        setSearchField(searchFieldString);
+      };
+
+    const lastPostIndex = currentPage * postsPerPage;
+    const firePostIndex = lastPostIndex - postsPerPage;
+    const currentCharacters = sortCharacterBasedOnLvl.slice(firePostIndex, lastPostIndex)
+
     return (
         <Fragment>
+            <SearchBox className='weeklies-search-box' onChangeHandler={onSearchChange} placeholder='Search Characters'/>
             {characters.length ?
                 <div className="CL-container">
-                    {sortCharacterBasedOnLvl.map((character) => {
+                    {currentCharacters.map((character) => {
                         return (
                             <Character key={character.id} character={character} />
                         )
@@ -42,6 +66,7 @@ const CharacterList = () => {
                     <h3 className="no-characters">YOU HAVE NO CHARACTERS</h3>
                 </div>
             }
+            <Pagination totalPosts={filteredCharacters.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
         </Fragment>
     )
 };

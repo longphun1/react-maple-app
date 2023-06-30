@@ -10,6 +10,7 @@ import { selectBossTotal } from "../../store/checkbox/checkbox.selector";
 import Weekly from '../weekly/weekly.component';
 import WeeklyCheckbox from "../weeklyCheckbox/weeklyCheckbox.component";
 import Pagination from "../pagination/pagination.component";
+import SearchBox from "../search-box/search-box.component";
 import './weeklyList.styles.scss';
 import { useDispatch } from "react-redux";
 import { clearpersist } from "../../store/store";
@@ -19,13 +20,8 @@ const WeeklyList = () => {
     const [characters, setCharacters] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostPerPage] = useState(5)
-
-    const sortBossBasedOnPrice = [ ...weeklies].sort((a, b) => a.weeklyPrice - b.weeklyPrice)
-    const sortCharacterBasedOnLvl = [ ...characters].sort((a, b) => b.characterLevel - a.characterLevel)
-
-    const lastPostIndex = currentPage * postsPerPage;
-    const firePostIndex = lastPostIndex - postsPerPage;
-    const currentCharacters = sortCharacterBasedOnLvl.slice(firePostIndex, lastPostIndex)
+    const [searchField, setSearchField] = useState('')
+    const [filteredWeeklies, setFilteredWeeklies] = useState(weeklies)
 
     const uid = useSelector(selectCurrentUser).uid
     const bossTotal = useSelector(selectBossTotal).toLocaleString()
@@ -51,13 +47,33 @@ const WeeklyList = () => {
         getCharacters();
     }, []);
 
-    const dispatch = useDispatch()
+    useEffect(() => {
+        const newFilteredWeeklies = weeklies.filter((weekly) => {
+            return weekly.weeklyName.toLocaleLowerCase().includes(searchField);
+        })
 
-    const clearredux = () => dispatch(clearpersist())
+        setFilteredWeeklies(newFilteredWeeklies)
+    }, [weeklies, searchField]);
+
+    const onSearchChange = (event) => {
+        const searchFieldString = event.target.value.toLocaleLowerCase();
+        setSearchField(searchFieldString);
+      };
+
+    const sortBossBasedOnPrice = [ ...filteredWeeklies].sort((a, b) => a.weeklyPrice - b.weeklyPrice)
+    const sortCharacterBasedOnLvl = [ ...characters].sort((a, b) => b.characterLevel - a.characterLevel)
+
+    const lastPostIndex = currentPage * postsPerPage;
+    const firePostIndex = lastPostIndex - postsPerPage;
+    const currentCharacters = sortCharacterBasedOnLvl.slice(firePostIndex, lastPostIndex)
+
+    // const dispatch = useDispatch()
+    // const clearredux = () => dispatch(clearpersist())
 
     return (
         <Fragment>
-            {weeklies.length ?
+            <SearchBox className='weeklies-search-box' onChangeHandler={onSearchChange} placeholder='Search Weeklies'/>
+            {filteredWeeklies.length ?
                 <div className='WL-container'>
                     <table className="weeklyTable">
                         <tbody>
