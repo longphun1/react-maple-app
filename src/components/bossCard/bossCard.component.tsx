@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import { addDoc, collection, deleteDoc, getDocs, doc } from 'firebase/firestore';
 import { db } from '../../utils/firebase/firebase.utils';
 import { useSelector } from 'react-redux';
@@ -6,9 +6,24 @@ import { selectCurrentUser } from '../../store/user/user.selector';
 import { Fragment } from 'react';
 import './bossCard.styles.scss';
 
-const BossCard = ({ boss }) => {
+type BossCardObject = {
+    name: string;
+    price: number;
+    imageUrl: string;
+}
+
+type BossProps = {
+    boss: BossCardObject
+}
+
+type Boss = {
+    id: string;
+    weeklyName?: string
+}
+
+const BossCard: FC<BossProps> = ({ boss }) => {
     const { name, price, imageUrl } = boss
-    const [weeklies, setWeeklies] = useState([])
+    const [weeklies, setWeeklies] = useState<Boss[]>([])
 
     let num = price.toLocaleString()
 
@@ -31,13 +46,13 @@ const BossCard = ({ boss }) => {
 
     const createWeekly = async () => {
         await addDoc(weeklyCollectionRef, { weeklyName: name, weeklyPrice: Number(price) });
-        window.location.reload(false)
+        window.location.reload()
     };
 
-    const deleteWeekly = async (id) => {
+    const deleteWeekly = async (id: string) => {
         const weeklyDoc = doc(db, `userWeeklies/${uid}/weeklies`, id)
         await deleteDoc(weeklyDoc)
-        window.location.reload(false)
+        window.location.reload()
     }
 
     return (
@@ -57,7 +72,7 @@ const BossCard = ({ boss }) => {
                         </div>
                     </div>
 
-                    <button className='deleteWeeklyBtn' onClick={() => deleteWeekly(bossExistId)}>REMOVE</button>
+                    <button className='deleteWeeklyBtn' onClick={() => bossExistId && deleteWeekly(bossExistId)}>REMOVE</button>
                 </div>
             ) :
                 <div className='bossCard-container'>

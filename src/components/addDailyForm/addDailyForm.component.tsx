@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
-import './addDailyForm.styles.scss'
+import './addDailyForm.styles.scss';
 
-const AddDailyForm = ({ character_id }) => {
+type AddDailyProps = {
+    character_id: string
+}
+
+const AddDailyForm = ({ character_id }: AddDailyProps) => {
 
     const [newDaily, setNewDaily] = useState('');
 
@@ -11,7 +15,7 @@ const AddDailyForm = ({ character_id }) => {
 
     const createDaily = async () => {
         await addDoc(dailyCollectionRef, { dailyName: newDaily })
-        window.location.reload(false);
+        window.location.reload();
     }
 
     return (

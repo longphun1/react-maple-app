@@ -1,15 +1,21 @@
 import { useState, useEffect } from "react";
 import { Fragment } from "react";
 import { db } from "../../utils/firebase/firebase.utils";
-import {
-    collection,
-    getDocs,
-} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import Daily from "../daily/daily.component";
 import './dailyList.styles.scss'
 
-const DailyList = ({ character_id }) => {
-    const [dailies, setDailies] = useState([])
+type DailyListProps = {
+    character_id: string
+}
+
+export type Daily = {
+    id: string;
+    dailyName?: string;
+}
+
+const DailyList = ({ character_id }: DailyListProps) => {
+    const [dailies, setDailies] = useState<Daily[]>([])
 
     const dailiesCollectionRef = collection(db, `charactersDailies/${character_id}/dailies`)
 
