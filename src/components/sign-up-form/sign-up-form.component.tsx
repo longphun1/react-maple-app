@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
@@ -21,7 +22,7 @@ const SignUpForm = () => {
         setFormFields(defaultFormFields)
     }
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         if(password !== confirmPassword) {
@@ -35,15 +36,15 @@ const SignUpForm = () => {
             resetFormFields();
             navigate('/');
         } catch (error) {
-            if(error.code === 'auth/email-already-in-use') {
-                alert ('email already in use')
+            if((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
+                alert ('Email already in use')
             } else {
-                console.log('There was an error in creating the user', error)
+                alert('There was an error in creating the user')
             }
         }
     }
 
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
 
         setFormFields({ ...formFields, [name]: value }); //spread out all the form fields and modify only one field at a time

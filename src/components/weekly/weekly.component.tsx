@@ -1,6 +1,11 @@
+import { WeeklyObject } from '../shared-types';
 import './weekly.styles.scss'
 
-const Weekly = ({weekly}) => {
+type WeeklyProps = {
+    weekly: WeeklyObject
+}
+
+const Weekly = ({ weekly }: WeeklyProps) => {
     const { weeklyName, weeklyPrice } = weekly
 
     const price = weeklyPrice.toString().slice(0, -6)

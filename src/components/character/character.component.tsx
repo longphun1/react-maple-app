@@ -3,7 +3,17 @@ import AddDailyForm from "../addDailyForm/addDailyForm.component";
 import DailyList from "../dailyList/dailyList.component";
 import './character.styles.scss'
 
-const Character = ({ character }) => {
+type CharacterObject = {
+    id: string
+    characterClass: string
+    characterName: string
+}
+
+type CharacterProps = {
+    character: CharacterObject
+}
+
+const Character= ({ character }: CharacterProps) => {
     const { characterName, characterClass, id } = character;
 
     const [isShown, setIsShown] = useState(false)

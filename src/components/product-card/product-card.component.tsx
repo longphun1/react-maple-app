@@ -1,10 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItems } from '../../store/cart/cart.selector';
 import { addItemToCart } from '../../store/cart/cart.action';
+import { ProductObject } from '../shared-types';
 import Button from '../button/button.component'
 import './product-card.styles.scss'
 
-const ProductCard = ({ product }) => {
+type ProductProps = {
+    product: ProductObject
+}
+
+const ProductCard = ({ product }: ProductProps) => {
     const { name, price, imageUrl } = product;
     const dispatch = useDispatch()
     const cartItems = useSelector(selectCartItems);

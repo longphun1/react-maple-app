@@ -1,6 +1,13 @@
 import './pagination.styles.scss'
 
-const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) => {
+type PaginationProps = {
+    totalPosts: number
+    postsPerPage: number
+    setCurrentPage: (pageNumber: number) => void
+    currentPage: number
+}
+
+const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }: PaginationProps) => {
     let pages = [];
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {

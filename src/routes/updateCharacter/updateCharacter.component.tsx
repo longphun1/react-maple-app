@@ -10,10 +10,11 @@ import {
 import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { CharacterType } from '../../components/shared-types';
 import './updateCharacter.styles.scss';
 
 const UpdateCharacter = () => {
-    const [characters, setCharacters] = useState([]);
+    const [characters, setCharacters] = useState<CharacterType[]>([]);
     const [updateCharacterName, setUpdateCharacterName] = useState('')
     const [updateCharacterClass, setUpdateCharacterClass] = useState('')
     const [updateCharacterLevel, setUpdateCharacterLevel] = useState('')
@@ -28,14 +29,20 @@ const UpdateCharacter = () => {
     useEffect(() => {
         const getCharacters = async () => {
             const data = await getDocs(charactersCollectionRef);
-            setCharacters(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            setCharacters(data.docs.map((doc) => ({ 
+                ...doc.data(), 
+                id: doc.id, 
+                characterClass: doc.data().characterClass,
+                characterLevel: doc.data().characterLevel,
+                characterName: doc.data().characterName
+            })))
         };
 
         getCharacters();
     }, []);
 
     const updateCharacter = async () => {
-        const characterDoc = doc(db, `userCharacters/${userId}/characters`, id);
+        const characterDoc = doc(db, `userCharacters/${userId}/characters/${id}`);
         if (updateCharacterName !== '') {
             await updateDoc(characterDoc, { characterName: updateCharacterName })
             navigate('/characters')

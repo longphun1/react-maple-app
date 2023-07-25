@@ -12,17 +12,17 @@ const Missions = () => {
 
     useEffect(() => {
         const getBossesMap = async () => {
-            const bosses = await getBossesAndDocuments('bosses');
-            dispatch(setBosses(bosses))
+            const bosses = await getBossesAndDocuments();
+            dispatch(setBosses(bosses));
         };
 
         getBossesMap();
-    }, [dispatch])
+    }, [dispatch]);
 
     return (
         <div className="missions-container">
             <div className="mission-banner-container">
-                <div className="mission-banner-img"/>
+                <div className="mission-banner-img" />
             </div>
             <div className="missions-sub-container">
                 <h1 className="mission-titles">Daily Missions <a className="view-characters-link" href="characters">View All Characters</a></h1>

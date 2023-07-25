@@ -9,10 +9,11 @@ import {
 import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { CharacterType } from "../../components/shared-types";
 import './characters.styles.scss';
 
 const Characters = () => {
-    const [characters, setCharacters] = useState([]);
+    const [characters, setCharacters] = useState<CharacterType[]>([]);
     console.log(characters)
 
     const userId = useSelector(selectCurrentUser).uid;
@@ -24,19 +25,25 @@ const Characters = () => {
     useEffect(() => {
         const getCharacters = async () => {
             const data = await getDocs(charactersCollectionRef);
-            setCharacters(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            setCharacters(data.docs.map((doc) => ({ 
+                ...doc.data(), 
+                id: doc.id,
+                characterClass: doc.data().characterClass,
+                characterLevel: doc.data().characterLevel,
+                characterName: doc.data().characterName
+            })))
         };
 
         getCharacters();
     }, []);
 
-    const deleteCharacter = async (id) => {
+    const deleteCharacter = async (id: string) => {
         const characterDoc = doc(db, `userCharacters/${userId}/characters`, id);
         await deleteDoc(characterDoc);
         navigate('/missions')
     };
 
-    const goToUpdatePage = async (id) => {
+    const goToUpdatePage = async (id: string) => {
         navigate(`/character/${id}`)
     }
 

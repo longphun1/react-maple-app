@@ -9,16 +9,17 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import Character from "../character/character.component";
 import SearchBox from "../search-box/search-box.component";
 import Pagination from "../pagination/pagination.component";
+import { CharacterType } from "../shared-types";
 import './characterList.styles.scss'
 
 const CharacterList = () => {
-    const [characters, setCharacters] = useState([])
+    const [characters, setCharacters] = useState<CharacterType[]>([])
     const [searchField, setSearchField] = useState('')
     const [filteredCharacters, setFilteredCharacters] = useState(characters)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostPerPage] = useState(8)
 
-    const sortCharacterBasedOnLvl = [ ...filteredCharacters].sort((a, b) => b.characterLevel - a.characterLevel)
+    const sortCharacterBasedOnLvl = [...filteredCharacters].sort((a, b) => b.characterLevel - a.characterLevel)
 
     const currentUser = useSelector(selectCurrentUser)
 
@@ -27,7 +28,13 @@ const CharacterList = () => {
     useEffect(() => {
         const getDailies = async () => {
             const data = await getDocs(charactersCollectionRef);
-            setCharacters(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            setCharacters(data.docs.map((doc) => ({
+                ...doc.data(),
+                id: doc.id,
+                characterClass: doc.data().characterClass,
+                characterLevel: doc.data().characterLevel,
+                characterName: doc.data().characterName
+            })))
         };
 
         getDailies();
@@ -41,10 +48,10 @@ const CharacterList = () => {
         setFilteredCharacters(newFilteredCharacters)
     }, [characters, searchField]);
 
-    const onSearchChange = (event) => {
+    const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const searchFieldString = event.target.value.toLocaleLowerCase();
         setSearchField(searchFieldString);
-      };
+    };
 
     const lastPostIndex = currentPage * postsPerPage;
     const firePostIndex = lastPostIndex - postsPerPage;
@@ -52,7 +59,7 @@ const CharacterList = () => {
 
     return (
         <Fragment>
-            <SearchBox className='weeklies-search-box' onChangeHandler={onSearchChange} placeholder='Search Characters'/>
+            <SearchBox className='weeklies-search-box' onChangeHandler={onSearchChange} placeholder='Search Characters' />
             {characters.length ?
                 <div className="CL-container">
                     {currentCharacters.map((character) => {
@@ -66,7 +73,7 @@ const CharacterList = () => {
                     <h3 className="no-characters">YOU HAVE NO CHARACTERS</h3>
                 </div>
             }
-            <Pagination totalPosts={filteredCharacters.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+            <Pagination totalPosts={filteredCharacters.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
         </Fragment>
     )
 };

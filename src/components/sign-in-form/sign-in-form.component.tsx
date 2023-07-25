@@ -28,14 +28,14 @@ const SignInForm = () => {
         navigate('/');
     }
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         try {
             await signInAuthUserWithEmailAndPassword(email, password);
             resetFormFields();
             navigate('/');
-        } catch (error) {
+        } catch (error: any) {
             switch(error.code) {
                 case 'auth/wrong-password':
                     alert('incorrect password');
@@ -49,7 +49,7 @@ const SignInForm = () => {
         }
     };
 
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
 
         setFormFields({ ...formFields, [name]: value }); //spread out all the form fields and modify only one field at a time

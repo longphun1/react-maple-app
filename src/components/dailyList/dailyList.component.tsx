@@ -11,7 +11,7 @@ type DailyListProps = {
 
 export type Daily = {
     id: string;
-    dailyName?: string;
+    dailyName: string;
 }
 
 const DailyList = ({ character_id }: DailyListProps) => {
@@ -22,7 +22,11 @@ const DailyList = ({ character_id }: DailyListProps) => {
     useEffect(() => {
         const getDailies = async () => {
             const data = await getDocs(dailiesCollectionRef);
-            setDailies(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            setDailies(data.docs.map((doc) => ({ 
+                ...doc.data(), 
+                id: doc.id,
+                dailyName: doc.data().dailyName 
+            })))
         };
 
         getDailies();

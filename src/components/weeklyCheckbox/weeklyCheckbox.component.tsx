@@ -2,9 +2,15 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { checkboxSelector, selectBossItems } from "../../store/checkbox/checkbox.selector";
 import { addBossToList, setCheckboxAction, removeBoss } from "../../store/checkbox/checkbox.action";
-import './weeklyCheckbox.styles.scss'
+import { WeeklyObject } from "../shared-types";
+import './weeklyCheckbox.styles.scss';
 
-const WeeklyCheckbox = ({ weekly, character_id }) => {
+type WeeklyCheckboxProps = {
+    character_id: string
+    weekly: WeeklyObject
+}
+
+const WeeklyCheckbox = ({ weekly, character_id }: WeeklyCheckboxProps) => {
     const { id, weeklyName } = weekly;
     const checkboxes = useSelector(checkboxSelector)
     const bossItems = useSelector(selectBossItems)
@@ -33,8 +39,7 @@ const WeeklyCheckbox = ({ weekly, character_id }) => {
                     onChange={handleSetCheckbox}
                     id={unique_id}
                 />
-                <label className="checkbox-label" for={unique_id} />
-                
+                <label className="checkbox-label" htmlFor={unique_id} />                
             </div>
         </div>
     )
