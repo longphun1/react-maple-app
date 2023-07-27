@@ -20,7 +20,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubsribe = onAuthStateChangedListener((user) => {
+    const unsubsribe = onAuthStateChangedListener((user: any) => {
       if (user) {
         createUserDocumentFromAuth(user);
       }
@@ -37,13 +37,13 @@ const App = () => {
         <Route element={<PrivateRoutes />}>
           <Route path='/' element={<Navigation />}>
             <Route index element={<Home />} />
-            <Route exact path='missions' element={<Missions />} />
-            <Route exact path='addCharacter' element={<AddCharacter />} />
-            <Route exact path='addWeekly' element={<AddWeekly />} />
-            <Route exact path='characters' element={<Characters />} />
-            <Route exact path='character/:id' element={<UpdateCharacter />} />
-            <Route exact path='shop/*' element={<ShopPage />} />
-            <Route exact path='checkout' element={<CheckOutPage />} />
+            <Route path='missions' element={<Missions />} />
+            <Route path='addCharacter' element={<AddCharacter />} />
+            <Route path='addWeekly' element={<AddWeekly />} />
+            <Route path='characters' element={<Characters />} />
+            <Route path='character/:id' element={<UpdateCharacter />} />
+            <Route path='shop/*' element={<ShopPage />} />
+            <Route path='checkout' element={<CheckOutPage />} />
           </Route>
         </Route>
       </Routes>

@@ -5,7 +5,7 @@ import { selectCurrentUser } from '../store/user/user.selector';
 const PrivateRoute = () => {
     const isAuthenticated = useSelector(selectCurrentUser);
 
-    return isAuthenticated ? <Outlet/> : <Navigate to="/login"/>
+    return isAuthenticated ? <Outlet /> : <Navigate to="/login" />
 };
 
 export default PrivateRoute;
