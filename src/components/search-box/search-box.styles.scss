@@ -1,19 +1,21 @@
 .weeklies-search-box {
-    display: block;
-    margin-left: 78%;
-    margin-top: -40px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    padding: 10px;
-    width: 150px;
-    height: 30px;
-    line-height: 5px;
-    margin-bottom: 30px;
+  background-color: rgb(255, 255, 255, 0.9);
+  color: white;
+  display: block;
+  margin-left: 78%;
+  margin-top: -40px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px;
+  width: 150px;
+  height: 30px;
+  line-height: 5px;
+  margin-bottom: 30px;
 }
 
 @media only screen and (max-width: 1600px) {
-    .weeklies-search-box {
-        margin-left: 83%;
-    }
+  .weeklies-search-box {
+    margin-left: 83%;
+  }
 }
