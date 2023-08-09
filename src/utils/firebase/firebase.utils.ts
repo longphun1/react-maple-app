@@ -34,14 +34,15 @@ const firebaseConfig = {
 
 export const firebaseApp = initializeApp(firebaseConfig);
 
-// getAuth().onAuthStateChanged((user) => {    //
-//     if (user) {
-//         console.log('log in')
-//         console.log('user id', user.uid)
-//     } else {
-//         console.log('log out')
-//     }
-// })
+// getAuth().onAuthStateChanged((user) => {
+//   //
+//   if (user) {
+//     console.log("log in");
+//     console.log("user id", user.uid);
+//   } else {
+//     console.log("log out");
+//   }
+// });
 
 const googleProvider = new GoogleAuthProvider();
 

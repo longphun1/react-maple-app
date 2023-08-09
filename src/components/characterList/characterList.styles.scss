@@ -1,29 +1,29 @@
 .CL-container {
-    min-height: 380px;
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 5%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 15px;
-    row-gap: 50px;
+  min-height: 380px;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
+  row-gap: 50px;
 }
 
 .empty-CL-container {
-    min-height: 380px;
-    width: 90%;
-    margin: 0 auto;
+  min-height: 380px;
+  width: 90%;
+  margin: 0 auto;
 
-    .no-characters {
-        color: #C0C0C0;
-        font-style: italic;
-        margin-top: 80px;
-        text-align: center;
-    }
+  .no-characters {
+    color: #c0c0c0;
+    font-style: italic;
+    margin-top: 80px;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 1650px) {
-    .CL-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .CL-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

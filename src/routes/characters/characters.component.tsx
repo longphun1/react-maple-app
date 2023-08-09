@@ -44,7 +44,7 @@ const Characters = () => {
   const deleteCharacter = async (id: string) => {
     const characterDoc = doc(db, `userCharacters/${userId}/characters`, id);
     await deleteDoc(characterDoc);
-    navigate("/missions");
+    window.location.reload();
   };
 
   const goToUpdatePage = async (id: string) => {
